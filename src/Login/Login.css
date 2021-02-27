@@ -9,6 +9,7 @@
 }
 .topBar{
     margin:0;
+    position: relative;
 }
 .logo{
     display:inline-block;
@@ -18,8 +19,10 @@
     margin-left: 83px;
     margin-top: 44px;
 }
-.webName{
-    margin-top: 35px;
+.webNameDiv{
+    position: absolute;
+    top: 34px;
+    margin-left: 20px;
     display:inline-block;
     font-family:Arial, Helvetica, sans-serif;
     font-size:100px;
@@ -37,7 +40,7 @@
     border-radius: 15px;
     background-color: #F8EEE7;
     text-align:center;
-    
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 .loginTitle{
     display: inline-block;
@@ -87,6 +90,7 @@
     width: 200px;
     background-color: #94618E;
     border: none;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 .signUpButton{
     display:inline-block;
@@ -101,6 +105,7 @@
     width: 200px;
     background-color: #94618E;
     border: none;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 .signInButton:active{
     background-color: #967291;
