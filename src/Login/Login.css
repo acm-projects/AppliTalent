@@ -55,7 +55,7 @@
 .loginBlockBack{
     transition: opacity 1s linear;
 }
-.loginBlock .loginBlockBack{
+.loginBlockBack{
     transform: rotateY(180deg);
 }
 .loginTitle{

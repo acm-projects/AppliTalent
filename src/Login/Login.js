@@ -27,10 +27,10 @@ class Login extends React.Component{
       signButton.innerHTML = "Login";
       loginBlock.style.transform = "rotateY(180deg)";
       document.getElementsByClassName("loginBlockBack")[0].style.display = "block";
-      document.getElementsByClassName("loginBlockBack")[0].style.opacity = 1;
       document.getElementsByClassName("loginBlockFront")[0].style.opacity = 0;
       
       setTimeout(() => {
+        document.getElementsByClassName("loginBlockBack")[0].style.opacity = 1;
         document.getElementsByClassName("loginBlockFront")[0].style.display = "none";
       },500);
       
@@ -41,9 +41,9 @@ class Login extends React.Component{
       signButton.innerHTML = "Sign up";
       loginBlock.style.transform = "rotateY(0deg)";
       document.getElementsByClassName("loginBlockFront")[0].style.display = "block";
-      document.getElementsByClassName("loginBlockFront")[0].style.opacity = 1;
       document.getElementsByClassName("loginBlockBack")[0].style.opacity = 0;
       setTimeout(() => {
+        document.getElementsByClassName("loginBlockFront")[0].style.opacity = 1;
         document.getElementsByClassName("loginBlockBack")[0].style.display = "none";
       },500);
       this.setState(state => ({isLogin: true}));
