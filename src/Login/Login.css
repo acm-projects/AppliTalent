@@ -29,6 +29,9 @@
     color:#F8EEE7;
     font-weight: bold;
 }
+.webName{
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
 .loginBlock{
     font-weight: bold;
     position: absolute;
