@@ -50,10 +50,10 @@
     position: absolute;
 }
 .loginBlockFront{
-    transition: opacity 1s linear;    
+    transition: opacity 0.5s linear;    
 }
 .loginBlockBack{
-    transition: opacity 1s linear;
+    transition: opacity 0.5s linear;
 }
 .loginBlockBack{
     transform: rotateY(180deg);
@@ -66,12 +66,23 @@
 }
 .signUpTitle{
     display: inline-block;
-    margin-top: 44px;
+    margin-top: 10px;
     font-size: 50px;
     color: #94618E;
 }
 .text1{
     margin-top: 62px;
+    border: none;
+    width: 456px;
+    height: 60px;
+    background-color:#dbd8d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+}
+.emailEnter{
+    margin-top: 20px;
     border: none;
     width: 456px;
     height: 60px;
@@ -104,7 +115,7 @@
     color:#94618E;
 }
 .pswdEnter{
-    margin-top: 26px;
+    margin-top: 20px;
     border: none;
     width: 456px;
     height: 60px;
@@ -115,7 +126,7 @@
     color:#94618E;
 }
 .confirmPswdEnter{
-    margin-top: 26px;
+    margin-top: 20px;
     margin-bottom: 0;
     border: none;
     width: 456px;
@@ -127,7 +138,7 @@
     color:#94618E;
 }
 .createAccountButton{
-    margin-top: 30px;
+    margin-top: 20px;
     font-weight: bold;
     font-size: 25px;
     color: #FBEEE7;

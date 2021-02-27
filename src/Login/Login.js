@@ -28,10 +28,11 @@ class Login extends React.Component{
       loginBlock.style.transform = "rotateY(180deg)";
       document.getElementsByClassName("loginBlockBack")[0].style.display = "block";
       document.getElementsByClassName("loginBlockFront")[0].style.opacity = 0;
-      
       setTimeout(() => {
         document.getElementsByClassName("loginBlockBack")[0].style.opacity = 1;
         document.getElementsByClassName("loginBlockFront")[0].style.display = "none";
+        document.getElementsByClassName("text1")[0].value = "";
+        document.getElementsByClassName("text2")[0].value = "";
       },500);
       
       this.setState(state => ({isLogin: false}));
@@ -45,6 +46,10 @@ class Login extends React.Component{
       setTimeout(() => {
         document.getElementsByClassName("loginBlockFront")[0].style.opacity = 1;
         document.getElementsByClassName("loginBlockBack")[0].style.display = "none";
+        document.getElementsByClassName("emailEnter")[0].value = "";
+        document.getElementsByClassName("usrnmEnter")[0].value = "";
+        document.getElementsByClassName("pswdEnter")[0].value = "";
+        document.getElementsByClassName("confirmPswdEnter")[0].value = "";
       },500);
       this.setState(state => ({isLogin: true}));
     }
@@ -65,7 +70,7 @@ class Login extends React.Component{
           <figure className="loginBlockFront">
             <label className="loginTitle">Login</label>
             <form id="loginForm">
-              <input className="text1" type="text1" name="username" placeholder="Username"></input>
+              <input className="text1" type="username" name="username" placeholder="Username"></input>
               <input className="text2" type="password" name="pswd" placeholder="Password"></input>
               <button onClick={() => this.gotoSignIn()} className = "signInButton" type="submit" form="form1" value="Submit">Sign in</button>
             </form>
@@ -74,7 +79,8 @@ class Login extends React.Component{
           <figure className="loginBlockBack">
             <label className="signUpTitle">Sign up</label>
             <form id="signUpForm">
-              <input className="usrnmEnter" type="text1" name="username" placeholder="Username"></input>
+              <input className="emailEnter" type="email" name="email" placeholder="Email"></input>
+              <input className="usrnmEnter" type="username" name="username" placeholder="Username"></input>
               <input className="pswdEnter" type="password" name="pswd" placeholder="Password"></input>
               <input className="confirmPswdEnter" type="password" name="pswd" placeholder="Confirm password"></input>
               <button onClick={() => this.gotoSignUp()} className = "createAccountButton" type="submit" form="form1" value="Submit">Create Account</button>
