@@ -26,7 +26,7 @@ class Login extends React.Component{
           <label className="loginTitle">Login</label>
           <form id="loginForm">
 					  <input className="text1" type="text1" name="username" placeholder="Username"></input>
-					  <input className="text2" type="text2" name="pswd" placeholder="Password"></input>
+					  <input className="text2" type="password" name="pswd" placeholder="Password"></input>
           </form>
           <button onClick={this.gotoSignUp} className = "signInButton" type="submit" form="form1" value="Submit">Sign in</button>
           <a className="forgotUserPass" href={forgotUserPassLink}>Forgot Username/Password?</a>
