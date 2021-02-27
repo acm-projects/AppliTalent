@@ -34,16 +34,29 @@
 }
 .loginBlock{
     font-weight: bold;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin:auto;
+    margin-top: 100px;
     width: 556px;
     height: 506px;
     border-radius: 15px;
     background-color: #F8EEE7;
     text-align:center;
+    transition: transform 1s ease-in-out;
+    transform-style: preserve-3d;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    transform: rotateY(0deg);
+}
+.loginBlock figure{
+    position: absolute;
+}
+.loginBlockFront{
+    transition: opacity 1s linear;    
+}
+.loginBlockBack{
+    transition: opacity 1s linear;
+}
+.loginBlock .loginBlockBack{
+    transform: rotateY(180deg);
 }
 .loginTitle{
     display: inline-block;
@@ -51,8 +64,25 @@
     font-size: 50px;
     color: #94618E;
 }
+.signUpTitle{
+    display: inline-block;
+    margin-top: 44px;
+    font-size: 50px;
+    color: #94618E;
+}
 .text1{
     margin-top: 62px;
+    border: none;
+    width: 456px;
+    height: 60px;
+    background-color:#dbd8d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+}
+.usrnmEnter{
+    margin-top: 20px;
     border: none;
     width: 456px;
     height: 60px;
@@ -73,7 +103,42 @@
     font-size: 25px;
     color:#94618E;
 }
-*:focus{
+.pswdEnter{
+    margin-top: 26px;
+    border: none;
+    width: 456px;
+    height: 60px;
+    background-color:#dbd8d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+}
+.confirmPswdEnter{
+    margin-top: 26px;
+    margin-bottom: 0;
+    border: none;
+    width: 456px;
+    height: 60px;
+    background-color:#dbd8d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+}
+.createAccountButton{
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 25px;
+    color: #FBEEE7;
+    border-radius: 10px;
+    height: 65px;
+    width: 200px;
+    background-color: #94618E;
+    border: none;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+input:focus{
     outline: none;
     background-color: white;
 }
@@ -116,10 +181,16 @@
 .signUpButton:active{
     background-color: #967291;
 }
+.createAccountButton:active{
+    background-color: #967291;
+}
 .signInButton:hover{
      cursor: pointer;
 }
 .signUpButton:hover{
+    cursor: pointer;
+}
+.createAccountButton:hover{
     cursor: pointer;
 }
 *:focus::placeholder{
