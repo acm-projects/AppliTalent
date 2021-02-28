@@ -55,7 +55,6 @@ class Login extends React.Component{
         document.getElementsByClassName("loginBlockFront")[0].style.opacity = 1;
         document.getElementsByClassName("loginBlockBack")[0].style.display = "none";
         document.getElementsByClassName("emailEnter")[0].value = "";
-        document.getElementsByClassName("usrnmEnter")[0].value = "";
         document.getElementsByClassName("pswdEnter")[0].value = "";
         document.getElementsByClassName("confirmPswdEnter")[0].value = "";
         this.setState(state => ({isFlipping: false}));
