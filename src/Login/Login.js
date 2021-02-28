@@ -8,7 +8,10 @@ let signUpLink = "";
 class Login extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {isLogin: true};
+    this.state = {
+      isLogin: true,
+      isFlipping: false
+    };
 
   }
 
@@ -19,11 +22,16 @@ class Login extends React.Component{
 
   }
   flipLogin(){
+    console.log(`state ${this.state.isFlipping}`);
+    if(this.state.isFlipping === true)
+    {console.log(this.state.isFlipping);
+      return;}
+      
     let loginBlock = document.getElementsByClassName("loginBlock")[0];
     let signButton = document.getElementsByClassName("signUpButton")[0];
     console.log(this.state.isLogin);
     if(this.state.isLogin === true){
-      console.log("true");
+      this.setState(state => ({isFlipping: true}));
       signButton.innerHTML = "Login";
       loginBlock.style.transform = "rotateY(180deg)";
       document.getElementsByClassName("loginBlockBack")[0].style.display = "block";
@@ -33,12 +41,12 @@ class Login extends React.Component{
         document.getElementsByClassName("loginBlockFront")[0].style.display = "none";
         document.getElementsByClassName("text1")[0].value = "";
         document.getElementsByClassName("text2")[0].value = "";
+        this.setState(state => ({isFlipping: false}));
       },500);
-      
       this.setState(state => ({isLogin: false}));
     }
     else{
-      console.log("false");
+      this.setState(state => ({isFlipping: true}));
       signButton.innerHTML = "Sign up";
       loginBlock.style.transform = "rotateY(0deg)";
       document.getElementsByClassName("loginBlockFront")[0].style.display = "block";
@@ -50,6 +58,7 @@ class Login extends React.Component{
         document.getElementsByClassName("usrnmEnter")[0].value = "";
         document.getElementsByClassName("pswdEnter")[0].value = "";
         document.getElementsByClassName("confirmPswdEnter")[0].value = "";
+        this.setState(state => ({isFlipping: false}));
       },500);
       this.setState(state => ({isLogin: true}));
     }
