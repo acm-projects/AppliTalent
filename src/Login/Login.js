@@ -79,7 +79,7 @@ class Login extends React.Component{
           <figure className="loginBlockFront">
             <label className="loginTitle">Login</label>
             <form id="loginForm">
-              <input className="text1" type="username" name="username" placeholder="Username"></input>
+              <input className="text1" type="email" name="email" placeholder="Email"></input>
               <input className="text2" type="password" name="pswd" placeholder="Password"></input>
               <button onClick={() => this.gotoSignIn()} className = "signInButton" type="submit" form="form1" value="Submit">Sign in</button>
             </form>
@@ -89,7 +89,6 @@ class Login extends React.Component{
             <label className="signUpTitle">Sign up</label>
             <form id="signUpForm">
               <input className="emailEnter" type="email" name="email" placeholder="Email"></input>
-              <input className="usrnmEnter" type="username" name="username" placeholder="Username"></input>
               <input className="pswdEnter" type="password" name="pswd" placeholder="Password"></input>
               <input className="confirmPswdEnter" type="password" name="pswd" placeholder="Confirm password"></input>
               <button onClick={() => this.gotoSignUp()} className = "createAccountButton" type="submit" form="form1" value="Submit">Create Account</button>
