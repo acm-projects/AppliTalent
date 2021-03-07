@@ -1,5 +1,5 @@
+import firebase from '../firebase';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './Login.css';
 let forgotUserPassLink = "";
 let signInLink = "";
@@ -10,18 +10,87 @@ class Login extends React.Component{
     super(props);
     this.state = {
       isLogin: true,
-      isFlipping: false
+      isFlipping: false,
+      email: "",
+      password: "",
+      emailError: "",
+      passwordError: "",
+      user: "",
     };
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+  }
 
+  clearError(){
+    this.setState({emailError: "", passwordError: ""});
+  }
+  
+  clearInput(){
+    this.setState({email: "", password: ""});
+  }
+
+  handleEmailChange(e){
+    this.setState({
+      email: e.target.value
+    });
+  }
+
+  handlePasswordChange(e){
+    this.setState({
+      password: e.target.value
+    })
   }
 
   gotoSignIn(){
-
+    this.clearError();
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    .catch(err => {
+      switch(err.code){
+        case "auth/invalid-email":
+        case "auth/user-disabled":
+        case "auth/user-not-found":
+          this.setState({emailError: "That email does not exist."});
+          break;
+        case "auth/wrong-password":
+          this.setState({passwordError: "Wrong password"});
+          break;
+      }
+    })
   }
   gotoSignUp(){
-
+    this.clearError();
+    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+    .catch(err => {
+      switch(err.code){
+        case "auth/email-already-in-use":
+        case "auth/invalid-email":
+          this.setState({emailError: "That email already exists or is invalid."})
+          break;
+        case "auth/invalid-password":
+          this.setState({passwordError: "Weak password, must be 6 or more characters."})
+          break;
+      }
+    })
   }
+
+  authListener = () => {
+    firebase.auth().onAuthStateChanged(user => {
+      this.clearInput();
+      if(user){
+        this.setState({user: user});
+      }
+      else{
+        this.setState({user: ""});
+      }
+    })
+  };
+
+  componentWillReceiveProps(){
+    this.authListener();
+  }
+
   flipLogin(){
+    this.clearError();
     console.log(`state ${this.state.isFlipping}`);
     if(this.state.isFlipping === true)
     {console.log(this.state.isFlipping);
@@ -55,15 +124,11 @@ class Login extends React.Component{
         document.getElementsByClassName("loginBlockFront")[0].style.opacity = 1;
         document.getElementsByClassName("loginBlockBack")[0].style.display = "none";
         document.getElementsByClassName("emailEnter")[0].value = "";
-        document.getElementsByClassName("usrnmEnter")[0].value = "";
         document.getElementsByClassName("pswdEnter")[0].value = "";
-        document.getElementsByClassName("confirmPswdEnter")[0].value = "";
         this.setState(state => ({isFlipping: false}));
       },500);
       this.setState(state => ({isLogin: true}));
     }
-    
-
   }
   render(){
     return (
@@ -79,8 +144,10 @@ class Login extends React.Component{
           <figure className="loginBlockFront">
             <label className="loginTitle">Login</label>
             <form id="loginForm">
-              <input className="text1" type="username" name="username" placeholder="Username"></input>
-              <input className="text2" type="password" name="pswd" placeholder="Password"></input>
+              <input onChange={this.handleEmailChange} value={this.state.email} className="text1" type="email" name="email" placeholder="Email"></input>
+              <p>{this.state.emailError}</p>
+              <input onChange={this.handlePasswordChange} value={this.state.password} className="text2" type="password" name="pswd" placeholder="Password"></input>
+              <p>{this.state.passwordError}</p>
               <button onClick={() => this.gotoSignIn()} className = "signInButton" type="submit" form="form1" value="Submit">Sign in</button>
             </form>
             <a className="forgotUserPass" href={forgotUserPassLink}>Forgot Username/Password?</a>
@@ -89,15 +156,13 @@ class Login extends React.Component{
             <label className="signUpTitle">Sign up</label>
             <form id="signUpForm">
               <input className="emailEnter" type="email" name="email" placeholder="Email"></input>
-              <input className="usrnmEnter" type="username" name="username" placeholder="Username"></input>
+              <p>{this.state.emailError}</p>
               <input className="pswdEnter" type="password" name="pswd" placeholder="Password"></input>
-              <input className="confirmPswdEnter" type="password" name="pswd" placeholder="Confirm password"></input>
+              <p>{this.state.passwordError}</p>
               <button onClick={() => this.gotoSignUp()} className = "createAccountButton" type="submit" form="form1" value="Submit">Create Account</button>
             </form>
-            
           </figure>
         </div>
-        
       </div>
     );
   }
