@@ -42,6 +42,7 @@ class Login extends React.Component{
   }
 
   gotoSignIn(){
+    console.log("ran");
     this.clearError();
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
     .catch(err => {
@@ -58,6 +59,7 @@ class Login extends React.Component{
     })
   }
   gotoSignUp(){
+    console.log("ran");
     this.clearError();
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
     .catch(err => {
@@ -91,9 +93,9 @@ class Login extends React.Component{
 
   flipLogin(){
     this.clearError();
-    console.log(`state ${this.state.isFlipping}`);
+    //6console.log(`state ${this.state.isFlipping}`);
     if(this.state.isFlipping === true)
-    {console.log(this.state.isFlipping);
+    {//console.log(this.state.isFlipping);
       return;}
       
     let loginBlock = document.getElementsByClassName("loginBlock")[0];

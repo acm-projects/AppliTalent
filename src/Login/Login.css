@@ -1,3 +1,6 @@
+#loginForm{
+    margin:0;
+}
 .loginWhole{
     position: fixed;
     height: 100%;
@@ -66,12 +69,12 @@
 }
 .signUpTitle{
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 44px;
     font-size: 50px;
     color: #94618E;
 }
 .text1{
-    margin-top: 62px;
+    margin-top: 50px;
     border: none;
     width: 456px;
     height: 60px;
@@ -82,7 +85,7 @@
     color:#94618E;
 }
 .emailEnter{
-    margin-top: 20px;
+    margin-top: 50px;
     border: none;
     width: 456px;
     height: 60px;
@@ -105,6 +108,7 @@
 }
 .text2{
     margin-top: 39px;
+    margin-bottom: 10px;
     border: none;
     width: 456px;
     height: 60px;
@@ -115,7 +119,8 @@
     color:#94618E;
 }
 .pswdEnter{
-    margin-top: 20px;
+    margin-top: 39px;
+    margin-bottom: 10px;
     border: none;
     width: 456px;
     height: 60px;
@@ -138,7 +143,7 @@
     color:#94618E;
 }
 .createAccountButton{
-    margin-top: 20px;
+    margin-top: 30px;
     font-weight: bold;
     font-size: 25px;
     color: #FBEEE7;
@@ -154,13 +159,14 @@ input:focus{
     background-color: white;
 }
 .forgotUserPass{
-    margin-top: 16px;
+    margin-top: 5px;
     font-weight: normal;
     color:#94618E;
     display:block;
 }
 .signInButton{
-    margin-top: 52px;
+    margin-top: 30px;
+    margin-bottom: 0px;
     font-weight: bold;
     font-size: 25px;
     color: #FBEEE7;
