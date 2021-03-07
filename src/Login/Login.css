@@ -1,0 +1,215 @@
+.loginWhole{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-size: 100% 100%;
+    background-image: url(./loginBackground.png);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.topBar{
+    margin:0;
+    position: relative;
+}
+.logo{
+    display:inline-block;
+    width:91px;
+    height:91px;
+    background-image:url(./logo.png);
+    margin-left: 83px;
+    margin-top: 44px;
+}
+.webNameDiv{
+    position: absolute;
+    top: 34px;
+    margin-left: 20px;
+    display:inline-block;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:100px;
+    color:#F8EEE7;
+    font-weight: bold;
+}
+.webName{
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+.loginBlock{
+    font-weight: bold;
+    margin:auto;
+    margin-top: 100px;
+    width: 556px;
+    height: 506px;
+    border-radius: 15px;
+    background-color: #F8EEE7;
+    text-align:center;
+    transition: transform 1s ease-in-out;
+    transform-style: preserve-3d;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    transform: rotateY(0deg);
+}
+.loginBlock figure{
+    position: absolute;
+}
+.loginBlockFront{
+    transition: opacity 0.5s linear;    
+}
+.loginBlockBack{
+    transition: opacity 0.5s linear;
+}
+.loginBlockBack{
+    transform: rotateY(180deg);
+}
+.loginTitle{
+    display: inline-block;
+    margin-top: 44px;
+    font-size: 50px;
+    color: #94618E;
+}
+.signUpTitle{
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 50px;
+    color: #94618E;
+}
+.text1{
+    margin-top: 62px;
+    border: none;
+    width: 456px;
+    height: 60px;
+    background-color:#dbd8d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+}
+.emailEnter{
+    margin-top: 20px;
+    border: none;
+    width: 456px;
+    height: 60px;
+    background-color:#dbd8d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+}
+.usrnmEnter{
+    margin-top: 20px;
+    border: none;
+    width: 456px;
+    height: 60px;
+    background-color:#dbd8d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+}
+.text2{
+    margin-top: 39px;
+    border: none;
+    width: 456px;
+    height: 60px;
+    background-color:#dbd8d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+}
+.pswdEnter{
+    margin-top: 20px;
+    border: none;
+    width: 456px;
+    height: 60px;
+    background-color:#dbd8d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+}
+.confirmPswdEnter{
+    margin-top: 20px;
+    margin-bottom: 0;
+    border: none;
+    width: 456px;
+    height: 60px;
+    background-color:#dbd8d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+}
+.createAccountButton{
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    color: #FBEEE7;
+    border-radius: 10px;
+    height: 65px;
+    width: 200px;
+    background-color: #94618E;
+    border: none;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+input:focus{
+    outline: none;
+    background-color: white;
+}
+.forgotUserPass{
+    margin-top: 16px;
+    font-weight: normal;
+    color:#94618E;
+    display:block;
+}
+.signInButton{
+    margin-top: 52px;
+    font-weight: bold;
+    font-size: 25px;
+    color: #FBEEE7;
+    border-radius: 10px;
+    height: 65px;
+    width: 200px;
+    background-color: #94618E;
+    border: none;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+.signUpButton{
+    display:inline-block;
+    float:right;
+    font-weight: bold;
+    font-size: 25px;
+    color: #FBEEE7;
+    margin-right: 52px;
+    margin-top: 40px;
+    border-radius: 10px;
+    height: 65px;
+    width: 200px;
+    background-color: #94618E;
+    border: none;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+.signInButton:active{
+    background-color: #967291;
+}
+.signUpButton:active{
+    background-color: #967291;
+}
+.createAccountButton:active{
+    background-color: #967291;
+}
+.signInButton:hover{
+     cursor: pointer;
+}
+.signUpButton:hover{
+    cursor: pointer;
+}
+.createAccountButton:hover{
+    cursor: pointer;
+}
+*:focus::placeholder{
+    color: transparent;
+}
+::placeholder {
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+    margin-left:10px;
+}
