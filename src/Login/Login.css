@@ -1,6 +1,7 @@
 #loginForm{
     margin:0;
 }
+
 .loginWhole{
     position: fixed;
     height: 100%;
@@ -53,10 +54,12 @@
     position: absolute;
 }
 .loginBlockFront{
-    transition: opacity 0.5s linear;    
+    transition: opacity 0.5s linear;
+    pointer-events: auto;  
 }
 .loginBlockBack{
     transition: opacity 0.5s linear;
+    pointer-events: none;
 }
 .loginBlockBack{
     transform: rotateY(180deg);
@@ -84,6 +87,53 @@
     font-size: 25px;
     color:#94618E;
 }
+.text2{
+    margin-top: 39px;
+    margin-bottom: 2px;
+    border: none;
+    width: 456px;
+    height: 60px;
+    background-color:#dbd8d8;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 25px;
+    color:#94618E;
+}
+.emailInvalid{
+    margin-top:0;
+    margin-bottom:0;
+    opacity: 0;
+    color:#94618E;
+}
+.pswdInvalid{
+    margin-top:0;
+    opacity: 0;
+    color:#94618E;
+}
+.emailInvalid2{
+    margin-top:0;
+    margin-bottom:0;
+    opacity: 0;
+    color:#94618E;
+}
+.pswdInvalid2{
+    margin-top:0;
+    opacity: 0;
+    color:#94618E;
+}
+.signInButton{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 25px;
+    color: #FBEEE7;
+    border-radius: 10px;
+    height: 65px;
+    width: 200px;
+    background-color: #94618E;
+    border: none;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
 .emailEnter{
     margin-top: 50px;
     border: none;
@@ -97,18 +147,6 @@
 }
 .usrnmEnter{
     margin-top: 20px;
-    border: none;
-    width: 456px;
-    height: 60px;
-    background-color:#dbd8d8;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 25px;
-    color:#94618E;
-}
-.text2{
-    margin-top: 39px;
-    margin-bottom: 10px;
     border: none;
     width: 456px;
     height: 60px;
@@ -143,7 +181,7 @@
     color:#94618E;
 }
 .createAccountButton{
-    margin-top: 30px;
+    margin-top: 20px;
     font-weight: bold;
     font-size: 25px;
     color: #FBEEE7;
@@ -163,19 +201,6 @@ input:focus{
     font-weight: normal;
     color:#94618E;
     display:block;
-}
-.signInButton{
-    margin-top: 30px;
-    margin-bottom: 0px;
-    font-weight: bold;
-    font-size: 25px;
-    color: #FBEEE7;
-    border-radius: 10px;
-    height: 65px;
-    width: 200px;
-    background-color: #94618E;
-    border: none;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 .signUpButton{
     display:inline-block;

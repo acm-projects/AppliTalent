@@ -22,11 +22,13 @@ class Login extends React.Component{
   }
 
   clearError(){
-    this.setState({emailError: "", passwordError: ""});
+    document.getElementsByClassName("emailInvalid")[0].style.opacity = 0;
+    document.getElementsByClassName("pswdInvalid")[0].style.opacity = 0;
   }
   
   clearInput(){
-    this.setState({email: "", password: ""});
+    document.getElementsByClassName("emailInvalid2")[0].style.opacity = 0;
+    document.getElementsByClassName("pswdInvalid2")[0].style.opacity = 0;
   }
 
   handleEmailChange(e){
@@ -40,37 +42,48 @@ class Login extends React.Component{
       password: e.target.value
     })
   }
-
+  directToHome(){
+    this.props.history.push('/home');
+  };
   gotoSignIn(){
-    console.log("ran");
     this.clearError();
+    this.setState({email: document.getElementsByClassName("text1").value});
+    this.setState({password: document.getElementsByClassName("text2").value});
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    .then(() => {
+      this.directToHome();
+    })
     .catch(err => {
       switch(err.code){
         case "auth/invalid-email":
         case "auth/user-disabled":
         case "auth/user-not-found":
-          this.setState({emailError: "That email does not exist."});
+          document.getElementsByClassName("emailInvalid")[0].style.opacity = 1;
           break;
         case "auth/wrong-password":
-          this.setState({passwordError: "Wrong password"});
+          document.getElementsByClassName("pswdInvalid")[0].style.opacity = 1;
           break;
       }
     })
   }
   gotoSignUp(){
-    console.log("ran");
+    this.setState({email: document.getElementsByClassName("emailEnter").value});
+    this.setState({password: document.getElementsByClassName("pswdEnter").value});
     this.clearError();
+
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+    .then(() => {
+      this.directToHome();
+    })
     .catch(err => {
       switch(err.code){
         case "auth/email-already-in-use":
         case "auth/invalid-email":
-          this.setState({emailError: "That email already exists or is invalid."})
-          break;
+          document.getElementsByClassName("emailInvalid2")[0].style.opacity = 1;
+          return;
         case "auth/invalid-password":
-          this.setState({passwordError: "Weak password, must be 6 or more characters."})
-          break;
+          document.getElementsByClassName("pswdInvalid2")[0].style.opacity = 1;
+          return;
       }
     })
   }
@@ -100,7 +113,7 @@ class Login extends React.Component{
       
     let loginBlock = document.getElementsByClassName("loginBlock")[0];
     let signButton = document.getElementsByClassName("signUpButton")[0];
-    console.log(this.state.isLogin);
+    //console.log(this.state.isLogin);
     if(this.state.isLogin === true){
       this.setState(state => ({isFlipping: true}));
       signButton.innerHTML = "Login";
@@ -109,7 +122,10 @@ class Login extends React.Component{
       document.getElementsByClassName("loginBlockFront")[0].style.opacity = 0;
       setTimeout(() => {
         document.getElementsByClassName("loginBlockBack")[0].style.opacity = 1;
+        document.getElementsByClassName("loginBlockBack")[0].style.pointerEvents="auto";
+        document.getElementsByClassName("loginBlockFront")[0].style.pointerEvents="none";
         document.getElementsByClassName("loginBlockFront")[0].style.display = "none";
+        console.log("OKAY");
         document.getElementsByClassName("text1")[0].value = "";
         document.getElementsByClassName("text2")[0].value = "";
         this.setState(state => ({isFlipping: false}));
@@ -125,6 +141,8 @@ class Login extends React.Component{
       setTimeout(() => {
         document.getElementsByClassName("loginBlockFront")[0].style.opacity = 1;
         document.getElementsByClassName("loginBlockBack")[0].style.display = "none";
+        document.getElementsByClassName("loginBlockBack")[0].style.pointerEvents="none";
+        document.getElementsByClassName("loginBlockFront")[0].style.pointerEvents="auto";
         document.getElementsByClassName("emailEnter")[0].value = "";
         document.getElementsByClassName("pswdEnter")[0].value = "";
         this.setState(state => ({isFlipping: false}));
@@ -146,10 +164,10 @@ class Login extends React.Component{
           <figure className="loginBlockFront">
             <label className="loginTitle">Login</label>
             <form id="loginForm">
-              <input onChange={this.handleEmailChange} value={this.state.email} className="text1" type="email" name="email" placeholder="Email"></input>
-              <p>{this.state.emailError}</p>
-              <input onChange={this.handlePasswordChange} value={this.state.password} className="text2" type="password" name="pswd" placeholder="Password"></input>
-              <p>{this.state.passwordError}</p>
+              <input onChange={this.handleEmailChange} className="text1" type="email" name="email" placeholder="Email"></input>
+              <p className="emailInvalid">That email does not exist</p>
+              <input onChange={this.handlePasswordChange} className="text2" type="password" name="pswd" placeholder="Password"></input>
+              <p className="pswdInvalid">Wrong password</p>
               <button onClick={() => this.gotoSignIn()} className = "signInButton" type="submit" form="form1" value="Submit">Sign in</button>
             </form>
             <a className="forgotUserPass" href={forgotUserPassLink}>Forgot Username/Password?</a>
@@ -158,10 +176,10 @@ class Login extends React.Component{
             <label className="signUpTitle">Sign up</label>
             <form id="signUpForm">
               <input className="emailEnter" type="email" name="email" placeholder="Email"></input>
-              <p>{this.state.emailError}</p>
+              <p className="emailInvalid2">That email already exists or is invalid</p>
               <input className="pswdEnter" type="password" name="pswd" placeholder="Password"></input>
-              <p>{this.state.passwordError}</p>
-              <button onClick={() => this.gotoSignUp()} className = "createAccountButton" type="submit" form="form1" value="Submit">Create Account</button>
+              <p className="pswdInvalid2">Weak password, must be 6 or more characters</p>
+              <button onClick={() => this.gotoSignUp()} className = "createAccountButton" type="submit" form="form1" value="Submit">Create & Login</button>
             </form>
           </figure>
         </div>
