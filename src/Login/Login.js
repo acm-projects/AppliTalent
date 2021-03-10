@@ -47,13 +47,20 @@ class Login extends React.Component{
   };
   gotoSignIn(){
     this.clearError();
-    this.setState({email: document.getElementsByClassName("text1").value});
-    this.setState({password: document.getElementsByClassName("text2").value});
-    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+    console.log(this.state.email);
+    console.log(document.getElementsByClassName("text2")[0].value);
+    let text1 = document.getElementsByClassName("text1")[0].value;
+    let text2 = document.getElementsByClassName("text2")[0].value;
+    firebase.auth().signInWithEmailAndPassword(text1, text2)
     .then(() => {
+      this.isAuthedTrue(this.user.Id);
+      this.setState({email: document.getElementsByClassName("text1")[0].value});
+      this.setState({password: document.getElementsByClassName("text2")[0].value});
+      console.log("working?");
       this.directToHome();
     })
     .catch(err => {
+      console.log("not success");
       switch(err.code){
         case "auth/invalid-email":
         case "auth/user-disabled":
@@ -64,15 +71,18 @@ class Login extends React.Component{
           document.getElementsByClassName("pswdInvalid")[0].style.opacity = 1;
           break;
       }
+      this.setState({email: "", password:""});
     })
   }
   gotoSignUp(){
+    this.clearError();
     this.setState({email: document.getElementsByClassName("emailEnter").value});
     this.setState({password: document.getElementsByClassName("pswdEnter").value});
-    this.clearError();
+    
 
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
     .then(() => {
+      this.isAuthedTrue(this.user.Id);
       this.directToHome();
     })
     .catch(err => {
@@ -85,6 +95,7 @@ class Login extends React.Component{
           document.getElementsByClassName("pswdInvalid2")[0].style.opacity = 1;
           return;
       }
+      this.setState({email: "", password:""});
     })
   }
 
@@ -175,9 +186,9 @@ class Login extends React.Component{
           <figure className="loginBlockBack">
             <label className="signUpTitle">Sign up</label>
             <form id="signUpForm">
-              <input className="emailEnter" type="email" name="email" placeholder="Email"></input>
+              <input onChange={this.handleEmailChange} className="emailEnter" type="email" name="email" placeholder="Email"></input>
               <p className="emailInvalid2">That email already exists or is invalid</p>
-              <input className="pswdEnter" type="password" name="pswd" placeholder="Password"></input>
+              <input onChange={this.handlePasswordChange} className="pswdEnter" type="password" name="pswd" placeholder="Password"></input>
               <p className="pswdInvalid2">Weak password, must be 6 or more characters</p>
               <button onClick={() => this.gotoSignUp()} className = "createAccountButton" type="submit" form="form1" value="Submit">Create & Login</button>
             </form>

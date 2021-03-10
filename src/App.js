@@ -14,7 +14,11 @@ class App extends React.Component{
       userId:""
     };
   }
-
+  authedIsTrue(userID){
+    this.setState({
+      isAuthed: true,
+    })
+  }
 
 
 
@@ -24,7 +28,8 @@ class App extends React.Component{
         <div className="App">
           <Switch>
             <Route path="/" exact component={Login} />
-            {this.isAuthed ? (<Route path="/home" exact component={Home} />) : <Redirect to="/"/>}
+            
+            {this.isAuthed ? <Route path="/home" exact component={Home} /> : <Redirect to="/"/>}
           </Switch>
         </div>
       </Router>      
