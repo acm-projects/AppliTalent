@@ -1,9 +1,9 @@
 import firebase from '../firebase';
 import React from 'react';
 import './Login.css';
+import { BrowserRouter as Router, withRouter} from "react-router-dom";
 let forgotUserPassLink = "";
-let signInLink = "";
-let signUpLink = "";
+
 
 class Login extends React.Component{
   constructor(props) {
@@ -20,7 +20,10 @@ class Login extends React.Component{
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
   }
-
+  childAuthedTrue(){
+    console.log("called");
+    this.props.authedTrue();
+  }
   clearError(){
     document.getElementsByClassName("emailInvalid")[0].style.opacity = 0;
     document.getElementsByClassName("pswdInvalid")[0].style.opacity = 0;
@@ -43,14 +46,19 @@ class Login extends React.Component{
     })
   }
   directToHome(){
+    //console.log("go to home");
     this.props.history.push('/home');
   };
   gotoSignIn(){
+    console.log("called");
     this.clearError();
     this.setState({email: document.getElementsByClassName("text1").value});
     this.setState({password: document.getElementsByClassName("text2").value});
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
     .then(() => {
+     // console.log("success");
+      //this.childAuthedTrue();
+     // console.log("finished");
       this.directToHome();
     })
     .catch(err => {
@@ -188,4 +196,4 @@ class Login extends React.Component{
   }
 }
 
-export default Login;
+export default withRouter(Login);
