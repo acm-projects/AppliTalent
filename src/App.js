@@ -10,16 +10,21 @@ class App extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      isAuthed: false
+      isAuthed: false,
+      userId:""
     };
   }
+
+
+
+
   render(){
     return (
       <Router>
         <div className="App">
           <Switch>
             <Route path="/" exact component={Login} />
-            <Route path="/home" exact component={Home} />
+            {this.isAuthed ? (<Route path="/home" exact component={Home} />) : <Redirect to="/"/>}
           </Switch>
         </div>
       </Router>      
