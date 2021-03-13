@@ -8,9 +8,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 
 
 
-class App extends React.Component{
-
-  render(){
+const App = () => {
     return (
       <AuthProvider>
         <Router>
@@ -21,7 +19,6 @@ class App extends React.Component{
         </Router>
       </AuthProvider>    
     );
-  }
 }
 
 export default App;

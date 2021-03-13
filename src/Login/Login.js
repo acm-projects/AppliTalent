@@ -1,13 +1,14 @@
 import firebase from '../firebase';
-import React, { useCallback, useContext } from "react";
+import React, { useState, useCallback, useContext } from "react";
 import './Login.css';
 import { Redirect, withRouter} from "react-router-dom";
 import { AuthContext } from "../Context/Auth.js";
 let forgotUserPassLink = "";
 
 const Login = ({ history }) => {
+  const [isLogin, setIsLogin] = useState(true);
+  const [isFlipping, setIsFlipping] = useState(false);
   const handleSignUp = useCallback(async event => {
-    console.log("THIS");
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
@@ -20,11 +21,8 @@ const Login = ({ history }) => {
     }
   }, [history]);
 
-
-
   const handleLogin = useCallback(
     async event => {
-      console.log("THIS");
       event.preventDefault();
       const { email, password } = event.target.elements;
       try {
@@ -42,17 +40,14 @@ const Login = ({ history }) => {
 
 
   const flipLogin = ()=>{
-    this.clearError();
-    //6console.log(`state ${this.state.isFlipping}`);
-    if(this.state.isFlipping === true)
-    {//console.log(this.state.isFlipping);
-      return;}
+    if(isFlipping === true){
+      return;
+    }
       
     let loginBlock = document.getElementsByClassName("loginBlock")[0];
     let signButton = document.getElementsByClassName("signUpButton")[0];
-    //console.log(this.state.isLogin);
-    if(this.state.isLogin === true){
-      this.setState(state => ({isFlipping: true}));
+    if(isLogin === true){
+      setIsFlipping(true);
       signButton.innerHTML = "Login";
       loginBlock.style.transform = "rotateY(180deg)";
       document.getElementsByClassName("loginBlockBack")[0].style.display = "block";
@@ -62,15 +57,14 @@ const Login = ({ history }) => {
         document.getElementsByClassName("loginBlockBack")[0].style.pointerEvents="auto";
         document.getElementsByClassName("loginBlockFront")[0].style.pointerEvents="none";
         document.getElementsByClassName("loginBlockFront")[0].style.display = "none";
-        console.log("OKAY");
         document.getElementsByClassName("text1")[0].value = "";
         document.getElementsByClassName("text2")[0].value = "";
-        this.setState(state => ({isFlipping: false}));
+        setIsFlipping(false);
       },500);
-      this.setState(state => ({isLogin: false}));
+      setIsLogin(false);
     }
     else{
-      this.setState(state => ({isFlipping: true}));
+      setIsFlipping(true);
       signButton.innerHTML = "Sign up";
       loginBlock.style.transform = "rotateY(0deg)";
       document.getElementsByClassName("loginBlockFront")[0].style.display = "block";
@@ -82,18 +76,15 @@ const Login = ({ history }) => {
         document.getElementsByClassName("loginBlockFront")[0].style.pointerEvents="auto";
         document.getElementsByClassName("emailEnter")[0].value = "";
         document.getElementsByClassName("pswdEnter")[0].value = "";
-        this.setState(state => ({isFlipping: false}));
+        setIsFlipping(false);
       },500);
-      this.setState(state => ({isLogin: true}));
+      setIsLogin(true);
     }
   }
-
-
 
   const { currentUser } = useContext(AuthContext);
 
   if (currentUser) {
-    console.log(currentUser);
     return <Redirect to="/" />;
   }
 

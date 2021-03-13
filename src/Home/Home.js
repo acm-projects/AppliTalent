@@ -12,7 +12,7 @@ class Home extends React.Component{
         <div className = "wholeHome">
           <div className = "top"></div>
           <p>In the homepage</p>
-          <button onClick={() => applicationCache.auth().signOut()}>Sign out </button>
+          <button onClick={()=>firebase.auth().signOut()}>Sign out</button>
         </div>
       );
     }
