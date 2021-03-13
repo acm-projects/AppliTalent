@@ -1,118 +1,47 @@
 import firebase from '../firebase';
-import React from 'react';
+import React, { useCallback, useContext } from "react";
 import './Login.css';
-import { BrowserRouter as Router, withRouter} from "react-router-dom";
+import { Redirect, withRouter} from "react-router-dom";
+import { AuthContext } from "../Context/Auth.js";
 let forgotUserPassLink = "";
 
+const Login = ({ history }) => {
+  const handleSignUp = useCallback(async event => {
+    console.log("THIS");
+    event.preventDefault();
+    const { email, password } = event.target.elements;
+    try {
+      await firebase
+        .auth()
+        .createUserWithEmailAndPassword(email.value, password.value);
+      history.push("/");
+    } catch (error) {
+      alert(error);
+    }
+  }, [history]);
 
-class Login extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLogin: true,
-      isFlipping: false,
-      email: "",
-      password: "",
-      emailError: "",
-      passwordError: "",
-      user: "",
-    };
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-  }
-  childAuthedTrue(){
-    console.log("called");
-    this.props.authedTrue();
-  }
-  clearError(){
-    document.getElementsByClassName("emailInvalid")[0].style.opacity = 0;
-    document.getElementsByClassName("pswdInvalid")[0].style.opacity = 0;
-  }
+
+
+  const handleLogin = useCallback(
+    async event => {
+      console.log("THIS");
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await firebase
+          .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+        history.push("/");
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
   
-  clearInput(){
-    document.getElementsByClassName("emailInvalid2")[0].style.opacity = 0;
-    document.getElementsByClassName("pswdInvalid2")[0].style.opacity = 0;
-  }
 
-  handleEmailChange(e){
-    this.setState({
-      email: e.target.value
-    });
-  }
 
-  handlePasswordChange(e){
-    this.setState({
-      password: e.target.value
-    })
-  }
-  directToHome(){
-    //console.log("go to home");
-    this.props.history.push('/home');
-  };
-  gotoSignIn(){
-    console.log("called");
-    this.clearError();
-    this.setState({email: document.getElementsByClassName("text1").value});
-    this.setState({password: document.getElementsByClassName("text2").value});
-    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-    .then(() => {
-     // console.log("success");
-      //this.childAuthedTrue();
-     // console.log("finished");
-      this.directToHome();
-    })
-    .catch(err => {
-      switch(err.code){
-        case "auth/invalid-email":
-        case "auth/user-disabled":
-        case "auth/user-not-found":
-          document.getElementsByClassName("emailInvalid")[0].style.opacity = 1;
-          break;
-        case "auth/wrong-password":
-          document.getElementsByClassName("pswdInvalid")[0].style.opacity = 1;
-          break;
-      }
-    })
-  }
-  gotoSignUp(){
-    this.setState({email: document.getElementsByClassName("emailEnter").value});
-    this.setState({password: document.getElementsByClassName("pswdEnter").value});
-    this.clearError();
-
-    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-    .then(() => {
-      this.directToHome();
-    })
-    .catch(err => {
-      switch(err.code){
-        case "auth/email-already-in-use":
-        case "auth/invalid-email":
-          document.getElementsByClassName("emailInvalid2")[0].style.opacity = 1;
-          return;
-        case "auth/invalid-password":
-          document.getElementsByClassName("pswdInvalid2")[0].style.opacity = 1;
-          return;
-      }
-    })
-  }
-
-  authListener = () => {
-    firebase.auth().onAuthStateChanged(user => {
-      this.clearInput();
-      if(user){
-        this.setState({user: user});
-      }
-      else{
-        this.setState({user: ""});
-      }
-    })
-  };
-
-  componentWillReceiveProps(){
-    this.authListener();
-  }
-
-  flipLogin(){
+  const flipLogin = ()=>{
     this.clearError();
     //6console.log(`state ${this.state.isFlipping}`);
     if(this.state.isFlipping === true)
@@ -158,42 +87,49 @@ class Login extends React.Component{
       this.setState(state => ({isLogin: true}));
     }
   }
-  render(){
-    return (
-      <div className="loginWhole">
+
+
+
+  const { currentUser } = useContext(AuthContext);
+
+  if (currentUser) {
+    console.log(currentUser);
+    return <Redirect to="/" />;
+  }
+
+  return (
+    <div className="loginWhole">
         <div className="topBar">
           <div className="logo"></div>
           <div className="webNameDiv">
             <label className="webName">GoHire</label>
           </div>
-          <button onClick={() => this.flipLogin()} className="signUpButton">Sign up</button>
+          <button onClick={flipLogin} className="signUpButton">Sign up</button>
         </div>
         <div className="loginBlock">
           <figure className="loginBlockFront">
             <label className="loginTitle">Login</label>
-            <form id="loginForm">
-              <input onChange={this.handleEmailChange} className="text1" type="email" name="email" placeholder="Email"></input>
+            <form id="loginForm" onSubmit={handleLogin}>
+              <input className="text1" type="email" name="email" placeholder="Email"></input>
               <p className="emailInvalid">That email does not exist</p>
-              <input onChange={this.handlePasswordChange} className="text2" type="password" name="pswd" placeholder="Password"></input>
+              <input className="text2" type="password" name="password" placeholder="Password"></input>
               <p className="pswdInvalid">Wrong password</p>
-              <button onClick={() => this.gotoSignIn()} className = "signInButton" type="submit" form="form1" value="Submit">Sign in</button>
+              <button className = "signInButton" type="submit">Sign in</button>
             </form>
             <a className="forgotUserPass" href={forgotUserPassLink}>Forgot Username/Password?</a>
           </figure>
-          <figure className="loginBlockBack">
+          <figure className="loginBlockBack" onSubmit={handleSignUp}>
             <label className="signUpTitle">Sign up</label>
             <form id="signUpForm">
               <input className="emailEnter" type="email" name="email" placeholder="Email"></input>
               <p className="emailInvalid2">That email already exists or is invalid</p>
               <input className="pswdEnter" type="password" name="pswd" placeholder="Password"></input>
               <p className="pswdInvalid2">Weak password, must be 6 or more characters</p>
-              <button onClick={() => this.gotoSignUp()} className = "createAccountButton" type="submit" form="form1" value="Submit">Create & Login</button>
+              <button className = "createAccountButton" type="submit">Create & Login</button>
             </form>
           </figure>
         </div>
       </div>
-    );
-  }
-}
-
+  );
+};
 export default withRouter(Login);
