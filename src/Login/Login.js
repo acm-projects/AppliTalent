@@ -81,7 +81,14 @@ const Login = ({ history }) => {
       setIsLogin(true);
     }
   }
-
+  const clearLoginError = () => {
+    document.getElementsByClassName("emailInvalid")[0].style.opacity = 0;
+    document.getElementsByClassName("pswdInvalid")[0].style.opacity = 0;
+  };
+  const clearSignupError = ()=>{
+    document.getElementsByClassName("emailInvalid2")[0].style.opacity = 0;
+    document.getElementsByClassName("pswdInvalid2")[0].style.opacity = 0;
+  }
   const { currentUser } = useContext(AuthContext);
 
   if (currentUser) {
