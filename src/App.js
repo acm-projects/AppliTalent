@@ -13,15 +13,11 @@ const App = () => {
     return (
       <AuthProvider>
         <Router>
-          <Route exact path="/" exact component={AddCard} />
-          
-          {/*
-          <Route exact path="/" exact component={Home} />
           <div className="App">
             <PrivateRoute exact path="/" exact component={Home} />
             <Route exact path="/login" exact component={Login} />
           </div>
-          */}
+          
         </Router>
       </AuthProvider>    
     );
