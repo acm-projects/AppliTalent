@@ -3,7 +3,6 @@ import './App.css';
 import Login from "./Login/Login.js"
 import Home from "./Home/Home.js"
 import {AuthProvider} from "./Context/Auth.js"
-import AddCard from "./AddCard.js"
 import PrivateRoute from "./PrivateRoute.js"
 import { BrowserRouter as Router, Route} from "react-router-dom";
 

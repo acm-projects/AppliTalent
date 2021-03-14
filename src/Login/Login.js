@@ -16,8 +16,16 @@ const Login = ({ history }) => {
         .auth()
         .createUserWithEmailAndPassword(email.value, password.value);
       history.push("/");
-    } catch (error) {
-      alert(error);
+    } catch (err) {
+      switch(err.code){
+        case "auth/email-already-in-use":
+        case "auth/invalid-email":
+          document.getElementsByClassName("emailInvalid2")[0].style.opacity = 1;
+          return;
+        case "auth/invalid-password":
+          document.getElementsByClassName("pswdInvalid2")[0].style.opacity = 1;
+          return;
+      }
     }
   }, [history]);
 
@@ -30,8 +38,17 @@ const Login = ({ history }) => {
           .auth()
           .signInWithEmailAndPassword(email.value, password.value);
         history.push("/");
-      } catch (error) {
-        alert(error);
+      } catch (err) {
+          switch(err.code){
+            case "auth/invalid-email":
+            case "auth/user-disabled":
+            case "auth/user-not-found":
+              document.getElementsByClassName("emailInvalid")[0].style.opacity = 1;
+              break;
+            case "auth/wrong-password":
+              document.getElementsByClassName("pswdInvalid")[0].style.opacity = 1;
+              break;
+          }
       }
     },
     [history]
