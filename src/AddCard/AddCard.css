@@ -1,0 +1,44 @@
+.cardTopBar {
+  height: 100%;
+  width: 100%;
+  background-color: #49274a;
+}
+
+.cardAddCard {
+  height: 847px;
+  width: 1761px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #F8EEE7;
+  border-radius: 10px;
+}
+
+.submitAddCard {
+  width: 100px;
+  height: 100px;
+}
+
+.logo{
+  display:inline-block;
+  width:91px;
+  height:91px;
+  background-image:url(./logo.png);
+  margin-left: 83px;
+  margin-top: 44px;
+}
+
+.siteNameDiv{
+  position: absolute;
+  top: 34px;
+  margin-left: 20px;
+  display:inline-block;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:100px;
+  color:#F8EEE7;
+  font-weight: bold;
+}
+
+.siteName{
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
