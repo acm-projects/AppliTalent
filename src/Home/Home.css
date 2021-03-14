@@ -1,0 +1,36 @@
+.loginWhole{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-size: 100% 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.topBar{
+    margin:0;
+    width:100%;
+    height:80px;
+    background-color: #49274A;
+}
+.logo{
+    display:inline-block;
+    width:91px;
+    height:89px;
+    background-image:url(./logo.png);
+    margin-left: 25px;
+    margin-top: 5px;
+}
+.logo.png{
+    margin-left: 25px;
+    margin-top: 5px;
+}
+.webNameDiv{
+    position: absolute;
+    top: 13px;
+    margin-left: 20px;
+    display:inline-block;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:50px;
+    color:#F8EEE7;
+    font-weight: bold;
+}
