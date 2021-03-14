@@ -12,17 +12,21 @@ const Login = ({ history }) => {
     event.preventDefault();
     clearSignupError();
     const { email, password } = event.target.elements;
+    console.log(email.value)
+    console.log(password.value);
     firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
     .then(()=>{
       history.push("/")
     })
     .catch(err=>{
+      console.log(err.code);
       switch(err.code){
         case "auth/email-already-in-use":
         case "auth/invalid-email":
           document.getElementsByClassName("emailInvalid2")[0].style.opacity = 1;
           return;
         case "auth/invalid-password":
+        case "auth/weak-password":
           document.getElementsByClassName("pswdInvalid2")[0].style.opacity = 1;
           return;
       }
@@ -44,15 +48,11 @@ const Login = ({ history }) => {
         console.log(err.code);
         switch(err.code){
           case "auth/invalid-email":
-            console.log("HEY1");
           case "auth/user-disabled":
-            console.log("HEY2");
           case "auth/user-not-found":
-            console.log("HEY3");
             document.getElementsByClassName("emailInvalid")[0].style.opacity = 1;
             break;
           case "auth/wrong-password":
-            console.log("HEY4");
             document.getElementsByClassName("pswdInvalid")[0].style.opacity = 1;
             break;
         }
@@ -151,7 +151,7 @@ const Login = ({ history }) => {
             <form id="signUpForm">
               <input className="emailEnter" type="email" name="email" placeholder="Email"></input>
               <p className="emailInvalid2">That email already exists or is invalid</p>
-              <input className="pswdEnter" type="password" name="pswd" placeholder="Password"></input>
+              <input className="pswdEnter" type="password" name="password" placeholder="Password"></input>
               <p className="pswdInvalid2">Weak password, must be 6 or more characters</p>
               <button className = "createAccountButton" type="submit">Create & Login</button>
             </form>
