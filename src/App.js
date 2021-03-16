@@ -16,7 +16,7 @@ const App = () => {
           <div className="App">
             <PrivateRoute exact path="/" exact component={Home} />
             <Route exact path="/login" exact component={Login} />
-            
+            <Route exact path="/addCard" exact component={AddCard} />
           </div>
         </Router>
       </AuthProvider>

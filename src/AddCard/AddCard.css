@@ -1,5 +1,11 @@
+.wholeCardPage{
+  height:100vh;
+  width:100vw;
+  margin:0;
+  background-color: #49274a;
+}
 .cardTopBar {
-  height: 100%;
+  height: 104px;
   width: 100%;
   background-color: #49274a;
 }
@@ -7,11 +13,10 @@
 .cardAddCard {
   height: 847px;
   width: 1761px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
   background-color: #F8EEE7;
   border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .submitAddCard {
@@ -20,25 +25,48 @@
 }
 
 .logo{
-  display:inline-block;
-  width:91px;
-  height:91px;
-  background-image:url(./logo.png);
-  margin-left: 83px;
-  margin-top: 44px;
+ display:inline-block;
+    margin-top:7px;
+    margin-left: 11px;
+    width:91px;
+    height:91px;
+    background-image:url(./logo.png);
 }
 
 .siteNameDiv{
+  margin-top:15px;
+  margin-left: 5px;
   position: absolute;
-  top: 34px;
-  margin-left: 20px;
   display:inline-block;
   font-family:Arial, Helvetica, sans-serif;
-  font-size:100px;
+  font-size:64px;
   color:#F8EEE7;
   font-weight: bold;
 }
 
 .siteName{
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+.cardAddCard{
+  display: block;
+}
+.cardTitle{
+  display: inline-block;
+  margin-left:712px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:40px;
+  font-weight:bold;
+  color:#94619e;
+}
+.backToHome{
+  display:inline-block;
+  margin-top:28px;
+  margin-left:500px;
+  background-image: url(back.png);
+  width:50px;
+  height:50px;
+  cursor:pointer;
+}
+input{
+  height:100px;
 }
