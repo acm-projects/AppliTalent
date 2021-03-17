@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 
 const App = () => {
     return (
-      <AddCard/>
+      <Home/>
       /*<AuthProvider>
         <Router>
           <div className="App">
