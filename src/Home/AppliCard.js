@@ -8,7 +8,7 @@ const AppliCard = ({application}) => {
     <div className = "wholeAppliCard">
         <div>{application.companyName}</div>
         <div>{application.date}</div>
-        <div>{application.salaryValue}</div>
+        <div>{application.salary}</div>
     </div>
     );
 }

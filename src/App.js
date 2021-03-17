@@ -7,8 +7,6 @@ import {AuthProvider} from "./Context/Auth.js"
 import PrivateRoute from "./PrivateRoute.js"
 import { BrowserRouter as Router, Route} from "react-router-dom";
 
-
-
 const App = () => {
     return (
       <AuthProvider>
