@@ -1,4 +1,4 @@
-import './appliCard.css';
+import './AppliCard.css';
 import React from 'react';
 
 

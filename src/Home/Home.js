@@ -1,6 +1,6 @@
 import firebase from '../firebase';
+import AppliCard from "./AppliCard.js";
 import './Home.css';
-import AppliCard from "AppliCard.js";
 import React from 'react';
 
 
