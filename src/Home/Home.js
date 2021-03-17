@@ -1,5 +1,6 @@
 import firebase from '../firebase';
 import './Home.css';
+import AppliCard from "AppliCard.js";
 import React from 'react';
 
 
@@ -33,6 +34,9 @@ const Home = ({ history }) => {
           <button className="submitSort" type="submit" value="Submit">Sort</button>
           
         </div>
+      </div>
+      <div className="applications">
+        <AppliCard companyName="Amazon" locationName="Texas" salaryValue="100000"/>
       </div>
     
     </div>
