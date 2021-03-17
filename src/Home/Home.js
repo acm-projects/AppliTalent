@@ -51,7 +51,8 @@ const Home = ({ history }) => {
         </div>
       </div>
       <div className="applications">
-        {applications.map((application, index) => <AppliCard application={application} key={index}/>)}
+        {applications.map((application, index) =>
+        <AppliCard application={application} key={index}/>)}
       </div>
     
     </div>
