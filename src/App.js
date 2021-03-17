@@ -11,8 +11,7 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 
 const App = () => {
     return (
-      <Home/>
-      /*<AuthProvider>
+      <AuthProvider>
         <Router>
           <div className="App">
             <PrivateRoute exact path="/" exact component={Home} />
@@ -20,7 +19,7 @@ const App = () => {
             <Route exact path="/addCard" exact component={AddCard} />
           </div>
         </Router>
-      </AuthProvider>*/
+      </AuthProvider>
     );
 }
 
