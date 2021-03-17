@@ -2,13 +2,13 @@ import './AppliCard.css';
 import React from 'react';
 
 
-const AppliCard = (props) => {
+const AppliCard = ({application}) => {
 
   return (
     <div className = "wholeAppliCard">
-        <div>{props.companyName}</div>
-        <div>{props.locationName}</div>
-        <div>{props.salaryValue}</div>
+        <div>{application.companyName}</div>
+        <div>{application.date}</div>
+        <div>{application.salaryValue}</div>
     </div>
     );
 }

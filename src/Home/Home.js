@@ -1,12 +1,27 @@
 import firebase from '../firebase';
 import AppliCard from "./AppliCard.js";
 import './Home.css';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 const Home = ({ history }) => {
-  const appArray = [];
 
+  const [applications, setApplications] = useState([]);
+
+  const getApplications = () => {
+    const ref = firebase.firestore().collection("Applications");
+        ref.onSnapshot((snapshot) => {
+            const apps = [];
+            snapshot.forEach(doc => {
+                apps.push(doc.data());
+            })
+            setApplications(apps);
+        })
+  };
+
+  useEffect(() => {
+    getApplications();
+  }, []);
 
   const goToAddCard = () => {
     history.push("/addCard")
@@ -36,7 +51,7 @@ const Home = ({ history }) => {
         </div>
       </div>
       <div className="applications">
-        <AppliCard companyName="Amazon" locationName="Texas" salaryValue="100000"/>
+        {applications.map((application, index) => <AppliCard application={application} key={index}/>)}
       </div>
     
     </div>
