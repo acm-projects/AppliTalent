@@ -20,9 +20,6 @@ const AddCard = ({history}) => {
       setSalary(e.target.value);
     };
 
-    const addCardFunct = () =>{
-        console.log("Submit something");
-    };
     const goHome = () =>{
       history.push("/");
     };
@@ -52,7 +49,7 @@ const AddCard = ({history}) => {
               <div className="backToHome" onClick={goHome}></div>
             </div>
             
-            <form onSubmit={addCardFunct}>
+            <form onSubmit={addCard}>
               <input className="cmpName" placeholder="Company Name" value={companyName} onChange={handleCompanyNameChange}></input>
               <input type="date" className="Date" value={date} onChange={handleDateChange}></input>
               <input className="Salary" placeholder="Salary/Wage" value={salary} onChange={handleSalaryChange}></input>
