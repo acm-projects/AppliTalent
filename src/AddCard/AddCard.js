@@ -1,12 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./AddCard.css";
+import firebase from '../firebase';
 
 const AddCard = ({history}) => {
+
+    const [companyName, setCompanyName] = useState("");
+    const [date, setDate] = useState("");
+    const [salary, setSalary] = useState("");
+
+    const handleCompanyNameChange = (e) => {
+      setCompanyName(e.target.value);
+    };
+
+    const handleDateChange = (e) => {
+      setDate(e.target.value);
+    };
+
+    const handleSalaryChange = (e) => {
+      setSalary(e.target.value);
+    };
+
     const addCardFunct = () =>{
         console.log("Submit something");
     };
     const goHome = () =>{
       history.push("/");
+    };
+
+    const addCard = () => {
+      const applicationRef = firebase.firestore().collection("Applications");
+      const application = {
+        companyName,
+        date,
+        salary,
+      };
+      applicationRef.add(application);
     };
   
       return (
@@ -25,9 +53,9 @@ const AddCard = ({history}) => {
             </div>
             
             <form onSubmit={addCardFunct}>
-              <input className="cmpName" placeholder="Company Name"></input>
-              <input className="Date" placeholder="Date Applied dd/mm/yyyy"></input>
-              <input className="Salary" placeholder="Salary/Wage"></input>
+              <input className="cmpName" placeholder="Company Name" value={companyName} onChange={handleCompanyNameChange}></input>
+              <input type="date" className="Date" value={date} onChange={handleDateChange}></input>
+              <input className="Salary" placeholder="Salary/Wage" value={salary} onChange={handleSalaryChange}></input>
               <button className="submitAddCard" type="submit">Add Card</button>
             </form>
           </div>
