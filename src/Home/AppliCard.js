@@ -6,9 +6,11 @@ const AppliCard = ({application}) => {
 
   return (
     <div className = "wholeAppliCard">
-        <div><p>{application.company}</p></div>
-        <div><p>{application.dateApplied}</p></div>
-        <div><p>{application.salary}</p></div>
+        <div>{application.company}</div>
+        <div>{application.dateApplied}</div>
+        <div>{application.jobTitle}</div>
+        <div>{application.salary}</div>
+        <div>{application.status}</div>
     </div>
     );
 }

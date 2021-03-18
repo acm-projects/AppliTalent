@@ -7,6 +7,9 @@ const AddCard = ({history}) => {
     const [companyName, setCompanyName] = useState("");
     const [date, setDate] = useState("");
     const [salary, setSalary] = useState("");
+    const [location, setLocation] = useState("");
+    const [position, setPosition] = useState("");
+    const [description, setDescription] = useState("");
 
     const handleCompanyNameChange = (e) => {
       setCompanyName(e.target.value);
@@ -18,6 +21,18 @@ const AddCard = ({history}) => {
 
     const handleSalaryChange = (e) => {
       setSalary(e.target.value);
+    };
+
+    const handleLocationChange = (e) => {
+      setLocation(e.target.value);
+    };
+
+    const handlePositionChange = (e) => {
+      setPosition(e.target.value);
+    };
+
+    const handleDescriptionChange = (e) => {
+      setDescription(e.target.value);
     };
 
     const goHome = () =>{
@@ -53,6 +68,9 @@ const AddCard = ({history}) => {
               <input className="cmpName" placeholder="Company Name" value={companyName} onChange={handleCompanyNameChange}></input>
               <input type="date" className="Date" value={date} onChange={handleDateChange}></input>
               <input className="Salary" placeholder="Salary/Wage" value={salary} onChange={handleSalaryChange}></input>
+              <input className="Location" placeholder="Location" value={location} onChange={handleLocationChange}></input>
+              <input className="Position" placeholder="Position" value={position} onChange={handlePositionChange}></input>
+              <input className="Description" placeholder="Description" value={description} onChange={handleDescriptionChange}></input>
               <button className="submitAddCard" type="submit">Add Card</button>
             </form>
           </div>

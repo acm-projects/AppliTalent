@@ -1,7 +1,7 @@
-.wholeCardPage{
-  height:100vh;
-  width:100vw;
-  margin:0;
+.wholeCardPage {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
   background-color: #49274a;
 }
 .cardTopBar {
@@ -11,62 +11,79 @@
 }
 
 .cardAddCard {
-  height: 847px;
-  width: 1761px;
-  background-color: #F8EEE7;
+  height: 75%;
+  width: 70%;
+  background-color: #f8eee7;
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .submitAddCard {
-  width: 100px;
-  height: 100px;
+  display: inline-block;
+  width: 175px;
+  height: 50px;
+  margin-top: 31%;
+  margin-left: 80%;
+  background-color: #94619e;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  color: #f8eee7;
+  font-weight: bold;
+  border: none;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
 
-.logo{
- display:inline-block;
-    margin-top:7px;
-    margin-left: 11px;
-    width:91px;
-    height:91px;
-    background-image:url(./logo.png);
+.logo {
+  display: inline-block;
+  margin-top: 1%;
+  margin-left: 1%;
+  width: 91px;
+  height: 91px;
+  background-image: url(./logo.png);
 }
 
-.siteNameDiv{
-  margin-top:15px;
+.siteNameDiv {
+  margin-top: 15px;
   margin-left: 5px;
   position: absolute;
-  display:inline-block;
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:64px;
-  color:#F8EEE7;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 64px;
+  color: #f8eee7;
   font-weight: bold;
 }
 
-.siteName{
+.siteName {
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
-.cardAddCard{
+.cardAddCard {
   display: block;
 }
-.cardTitle{
+.cardTitle {
   display: inline-block;
-  margin-left:712px;
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:40px;
-  font-weight:bold;
-  color:#94619e;
+  margin-left: 30%;
+  margin-top: 20px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: #94619e;
+  text-align: center;
 }
-.backToHome{
-  display:inline-block;
-  margin-top:28px;
-  margin-left:500px;
+.backToHome {
+  display: inline-block;
+  margin-top: 0px;
+  margin-left: 190px;
   background-image: url(back.png);
-  width:50px;
-  height:50px;
-  cursor:pointer;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
-input{
-  height:100px;
+input {
+  outline: none;
+  background-color: white;
+  height: 25px;
+  width: 300px;
 }

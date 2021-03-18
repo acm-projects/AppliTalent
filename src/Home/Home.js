@@ -2,6 +2,7 @@ import firebase from '../firebase';
 import AppliCard from "./AppliCard.js";
 import './Home.css';
 import React, {useState, useEffect} from 'react';
+import { Text, View, StyleSheet, Button } from 'react';
 
 
 const Home = ({ history }) => {
@@ -26,12 +27,14 @@ const Home = ({ history }) => {
   const goToAddCard = () => {
     history.push("/addCard")
   };
+  
   return (
     <div className = "wholeHome">
       <div className="topBarHome">
         <div className="logoHome"></div>
         <div className="webNameDivHome">
-          <label className="webNameHome">GoHire</label>
+            <span style={{'fontSize': '25px'}}>GoHire</span>
+            
         </div>
         <div className="signOut" onClick={() => firebase.auth().signOut()} ></div>
         <div className="addCard" onClick={goToAddCard}></div>
@@ -40,6 +43,10 @@ const Home = ({ history }) => {
       <div className="middleBar">
         <input className="searchBar" placeholder="Search"></input>
         <div className="sortByBlock">
+          <div className = "sortBegin">
+          <label className="sortLabel">Sort By:</label>
+          </div>
+          
           <select className="dropDown">
             <option value="mostRecent">Most Recent</option>
             <option value="company">Company</option>
@@ -51,8 +58,7 @@ const Home = ({ history }) => {
         </div>
       </div>
       <div className="applications">
-        {applications.map((application, index) =>
-        <AppliCard application={application} key={index}/>)}
+        {applications.map((application, index) => <AppliCard application={application} key={index}/>)}
       </div>
     
     </div>
