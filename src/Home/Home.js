@@ -2,7 +2,6 @@ import firebase from '../firebase';
 import AppliCard from "./AppliCard.js";
 import './Home.css';
 import React, {useState, useEffect} from 'react';
-import { Text, View, StyleSheet, Button } from 'react';
 
 
 const Home = ({ history }) => {
@@ -33,8 +32,7 @@ const Home = ({ history }) => {
       <div className="topBarHome">
         <div className="logoHome"></div>
         <div className="webNameDivHome">
-            <span style={{'fontSize': '25px'}}>GoHire</span>
-            
+            <label className="webNameHome">GoHire</label>
         </div>
         <div className="signOut" onClick={() => firebase.auth().signOut()} ></div>
         <div className="addCard" onClick={goToAddCard}></div>
@@ -57,10 +55,16 @@ const Home = ({ history }) => {
           
         </div>
       </div>
+      <div className="appliIndex">
+        <p className="label1">Company</p>
+        <p className="label2">Date Applied</p>
+        <p className="label3">Position</p>
+        <p className="label4">Status</p>
+      </div>
       <div className="applications">
         {applications.map((application, index) => <AppliCard application={application} key={index}/>)}
       </div>
-    
+      <div className="allCaughtUp"></div>
     </div>
     
   );

@@ -29,6 +29,8 @@ const Login = ({ history }) => {
         case "auth/weak-password":
           document.getElementsByClassName("pswdInvalid2")[0].style.opacity = 1;
           return;
+        default:
+          return;
       }
     });
   }, [history]);
@@ -55,6 +57,8 @@ const Login = ({ history }) => {
           case "auth/wrong-password":
             document.getElementsByClassName("pswdInvalid")[0].style.opacity = 1;
             break;
+          default:
+            return;
         }
         console.log()
         if(document.getElementsByClassName("text2")[0].value==="")
@@ -128,7 +132,7 @@ const Login = ({ history }) => {
   return (
     <div className="loginWhole">
         <div className="topBar">
-          <div className="logo"></div>
+          <div className="logoPhoto"></div>
           <div className="webNameDiv">
             <label className="webName">GoHire</label>
           </div>

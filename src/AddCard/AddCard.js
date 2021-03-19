@@ -39,14 +39,15 @@ const AddCard = ({history}) => {
       history.push("/");
     };
 
-    const addCard = () => {
-      const applicationRef = firebase.firestore().collection("Applications");
-      const application = {
+    const addCard = (event) => {
+      firebase.firestore().collection("Applications").add({
         companyName,
         date,
         salary,
-      };
-      applicationRef.add(application);
+        location,
+        position,
+        description
+      });
     };
   
       return (

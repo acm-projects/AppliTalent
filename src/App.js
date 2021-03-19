@@ -12,9 +12,9 @@ const App = () => {
       <AuthProvider>
         <Router>
           <div className="App">
-            <PrivateRoute exact path="/" exact component={Home} />
-            <Route exact path="/login" exact component={Login} />
-            <Route exact path="/addCard" exact component={AddCard} />
+            <PrivateRoute exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/addCard" component={AddCard} />
           </div>
         </Router>
       </AuthProvider>
