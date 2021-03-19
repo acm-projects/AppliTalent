@@ -4,19 +4,19 @@ import firebase from '../firebase';
 
 const AddCard = ({history}) => {
 
-    const [companyName, setCompanyName] = useState("");
-    const [date, setDate] = useState("");
+    const [company, setCompanyName] = useState("");
+    const [dateApplied, setDateApplied] = useState("");
     const [salary, setSalary] = useState("");
     const [location, setLocation] = useState("");
-    const [position, setPosition] = useState("");
-    const [description, setDescription] = useState("");
+    const [jobTitle, setPosition] = useState("");
+    const [jobDesc, setDescription] = useState("");
 
     const handleCompanyNameChange = (e) => {
       setCompanyName(e.target.value);
     };
 
     const handleDateChange = (e) => {
-      setDate(e.target.value);
+      setDateApplied(e.target.value);
     };
 
     const handleSalaryChange = (e) => {
@@ -41,12 +41,12 @@ const AddCard = ({history}) => {
 
     const addCard = (event) => {
       firebase.firestore().collection("Applications").add({
-        companyName,
-        date,
+        company,
+        dateApplied,
         salary,
         location,
-        position,
-        description
+        jobTitle,
+        jobDesc
       });
     };
   
@@ -66,12 +66,12 @@ const AddCard = ({history}) => {
             </div>
             
             <form onSubmit={addCard}>
-              <input className="cmpName" placeholder="Company Name" value={companyName} onChange={handleCompanyNameChange}></input>
-              <input type="date" className="Date" value={date} onChange={handleDateChange}></input>
+              <input className="cmpName" placeholder="Company Name" value={company} onChange={handleCompanyNameChange}></input>
+              <input type="date" className="Date" value={dateApplied} onChange={handleDateChange}></input>
               <input className="Salary" placeholder="Salary/Wage" value={salary} onChange={handleSalaryChange}></input>
               <input className="Location" placeholder="Location" value={location} onChange={handleLocationChange}></input>
-              <input className="Position" placeholder="Position" value={position} onChange={handlePositionChange}></input>
-              <input className="Description" placeholder="Description" value={description} onChange={handleDescriptionChange}></input>
+              <input className="Position" placeholder="Position" value={jobTitle} onChange={handlePositionChange}></input>
+              <input className="Description" placeholder="Description" value={jobDesc} onChange={handleDescriptionChange}></input>
               <button className="submitAddCard" type="submit">Add Card</button>
             </form>
           </div>
