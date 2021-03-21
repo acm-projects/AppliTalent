@@ -39,8 +39,9 @@ const AddCard = ({history}) => {
       history.push("/");
     };
 
-    const addCard = (event) => {
+    const addCard = () => {
       const userId = firebase.auth().currentUser.uid;
+
       firebase.firestore().collection("Applications").add({
         userId,
         company,
@@ -48,7 +49,7 @@ const AddCard = ({history}) => {
         salary,
         location,
         jobTitle,
-        jobDesc
+        jobDesc,
       });
     };
   

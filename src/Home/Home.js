@@ -22,6 +22,7 @@ const Home = ({ history }) => {
         })
   };
 
+
   useEffect(() => {
     getApplications();
   }, []);
