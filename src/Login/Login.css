@@ -103,23 +103,23 @@
   margin-top: 0;
   margin-bottom: 0;
   opacity: 0;
-  color: #94618e;
+  color: red;
 }
 .pswdInvalid {
   margin-top: 0;
   opacity: 0;
-  color: #94618e;
+  color: red;
 }
 .emailInvalid2 {
   margin-top: 0;
   margin-bottom: 0;
   opacity: 0;
-  color: #94618e;
+  color: red;
 }
 .pswdInvalid2 {
   margin-top: 0;
   opacity: 0;
-  color: #94618e;
+  color: red;
 }
 .signInButton {
   margin-top: 20px;
