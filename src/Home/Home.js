@@ -13,7 +13,10 @@ const Home = ({ history }) => {
         ref.onSnapshot((snapshot) => {
             const apps = [];
             snapshot.forEach(doc => {
-                apps.push(doc.data());
+                if(doc.data().userId === firebase.auth().currentUser.uid)
+                {
+                  apps.push(doc.data());
+                }
             })
             setApplications(apps);
         })

@@ -40,7 +40,9 @@ const AddCard = ({history}) => {
     };
 
     const addCard = (event) => {
+      const userId = firebase.auth().currentUser.uid;
       firebase.firestore().collection("Applications").add({
+        userId,
         company,
         dateApplied,
         salary,
