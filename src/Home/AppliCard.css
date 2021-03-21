@@ -16,3 +16,7 @@
   width: 100%;
   border-top: 1px solid #492741;
 }
+.wholeAppliCard:hover {
+  background-color: #94619e;
+  cursor: pointer;
+}

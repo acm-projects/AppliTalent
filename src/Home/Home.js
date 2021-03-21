@@ -68,7 +68,6 @@ const Home = ({ history }) => {
       <div className="applications">
         {applications.map((application, index) => <AppliCard application={application} key={index}/>)}
       </div>
-      <div className="allCaughtUp"></div>
     </div>
     
   );

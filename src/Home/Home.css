@@ -4,14 +4,7 @@
   --thirdPos: 830px;
   --fourthPos: 1320px;
 }
-.allCaughtUp {
-  background-image: url("./allCaughtUp.png");
-  width: 165px;
-  height: 27px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .appliIndex {
   padding: 0;
   margin: 0;
