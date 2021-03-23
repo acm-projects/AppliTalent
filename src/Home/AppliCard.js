@@ -1,11 +1,16 @@
 import './AppliCard.css';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 
-const AppliCard = ({application}) => {
-
+const AppliCard = ({application, setCurDocument}) => {
+  let history = useHistory();
+  const viewAppli = ()=>{
+    setCurDocument(application.docId);
+    history.push("/viewCard");
+  };
   return (
-    <div className = "wholeAppliCard">
+    <div onClick={viewAppli} className = "wholeAppliCard">
         <div className="label1">{application.company}</div>
         <div className="label2">{application.dateApplied}</div>
         <div className="label3">{application.jobTitle}</div>

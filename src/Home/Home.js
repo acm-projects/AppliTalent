@@ -2,10 +2,11 @@ import firebase from '../firebase';
 import AppliCard from "./AppliCard.js";
 import './Home.css';
 import React, {useState, useEffect} from 'react';
+import { useHistory } from 'react-router-dom';
 
 
-const Home = ({ history }) => {
-
+const Home = ({setCurDocument}) => {
+  let history = useHistory();
   const [applications, setApplications] = useState([]);
 
   const getApplications = () => {
@@ -55,7 +56,7 @@ const Home = ({ history }) => {
             <option value="Location">Location</option>
             <option value="Salary">Salary</option>
           </select>
-          <button className="submitSort" type="submit" value="Submit">Sort</button>
+          <button className="submitSort" type="button" value="Submit">Sort</button>
           
         </div>
       </div>
@@ -66,7 +67,7 @@ const Home = ({ history }) => {
         <p className="label4">Status</p>
       </div>
       <div className="applications">
-        {applications.map((application, index) => <AppliCard application={application} key={index}/>)}
+        {applications.map((application, index) => <AppliCard application={application} key={index} setCurDocument={setCurDocument}/>)}
       </div>
     </div>
     

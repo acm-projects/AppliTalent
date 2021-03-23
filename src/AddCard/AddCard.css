@@ -12,19 +12,20 @@
 
 .cardAddCard {
   height: 75%;
-  width: 70%;
+  width: 1350px;
   background-color: #f8eee7;
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
 }
 
 .submitAddCard {
   display: inline-block;
   width: 175px;
   height: 50px;
-  margin-top: 31%;
-  margin-left: 80%;
+  margin-top: 40px;
+  margin-left: 1085px;
   background-color: #94619e;
   border-radius: 10px;
   font-family: Arial, Helvetica, sans-serif;
@@ -34,23 +35,29 @@
   border: none;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 }
+.submitAddCard:hover {
+  cursor: pointer;
+}
 
 .logo {
   display: inline-block;
-  margin-top: 1%;
-  margin-left: 1%;
-  width: 91px;
-  height: 91px;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 4px;
+  margin-left: 5x;
+  width: 50px;
+  height: 50px;
   background-image: url(./logo.png);
 }
 
 .siteNameDiv {
-  margin-top: 15px;
+  margin-top: 2px;
   margin-left: 5px;
   position: absolute;
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 64px;
+  font-size: 50px;
   color: #f8eee7;
   font-weight: bold;
 }
@@ -63,8 +70,8 @@
 }
 .cardTitle {
   display: inline-block;
-  margin-left: 30%;
-  margin-top: 20px;
+  margin-left: 500px;
+  margin-top: 0px;
 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
@@ -72,15 +79,149 @@
   color: #94619e;
   text-align: center;
 }
+
 .backToHome {
   display: inline-block;
-  margin-top: 0px;
-  margin-left: 190px;
+  margin-top: 30px;
+  margin-left: 350px;
   background-image: url(back.png);
   width: 50px;
   height: 50px;
+  background-repeat: no-repeat;
+  background-size: 67%;
   cursor: pointer;
 }
+
+.cmpName {
+  vertical-align: bottom;
+  display: inline-block;
+  margin-left: 100px;
+  margin-top: 50px;
+  width: 820px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #dbd8d8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+
+  color: #94618e;
+  border: solid;
+  border-width: 2px;
+  border-color: #dbd8d8;
+  font-weight: normal;
+}
+
+.Date {
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 25px;
+  width: 300px;
+  height: 27px;
+  border-radius: 5px;
+
+  color: #94618e;
+  border: solid;
+  border-width: 2px;
+  border-color: #dbd8d8;
+  background-color: #dbd8d8;
+  font-weight: normal;
+}
+
+.Position {
+  vertical-align: bottom;
+  display: inline-block;
+  margin-left: 100px;
+  margin-top: 25px;
+  width: 560px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #dbd8d8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+
+  color: #94618e;
+  border: solid;
+  border-width: 2px;
+  border-color: #dbd8d8;
+  font-weight: normal;
+}
+
+.Status {
+  vertical-align: bottom;
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 25px;
+  width: 560px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #dbd8d8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+
+  color: #94618e;
+  border: solid;
+  border-width: 2px;
+  border-color: #dbd8d8;
+  font-weight: normal;
+}
+
+.Salary {
+  vertical-align: bottom;
+  display: inline-block;
+  margin-left: 100px;
+  margin-top: 25px;
+  width: 560px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #dbd8d8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+
+  color: #94618e;
+  border: solid;
+  border-width: 2px;
+  border-color: #dbd8d8;
+  font-weight: normal;
+}
+
+.Location {
+  vertical-align: bottom;
+  display: inline-block;
+  margin-left: 20px;
+  margin-top: 25px;
+  width: 560px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #dbd8d8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+
+  color: #94618e;
+  border: solid;
+  border-width: 2px;
+  border-color: #dbd8d8;
+  font-weight: normal;
+}
+
+.Description {
+  vertical-align: bottom;
+  display: inline-block;
+  margin-left: 100px;
+  margin-top: 25px;
+  width: 1150px;
+  height: 250px;
+  border-radius: 5px;
+  background-color: #dbd8d8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+
+  color: #94618e;
+  border: solid;
+  border-width: 2px;
+  border-color: #dbd8d8;
+  font-weight: normal;
+}
+
 input {
   outline: none;
   background-color: white;

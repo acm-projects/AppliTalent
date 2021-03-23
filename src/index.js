@@ -1,9 +1,10 @@
 import React from 'react';
+import firebase from 'firebase'
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-require('dotenv').config()
-
+require('dotenv').config();
+firebase.firestore.setLogLevel('silent');
 
 ReactDOM.render(
   <App/>,
