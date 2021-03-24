@@ -4,8 +4,8 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 
 
-const ViewCard = ({curDocument}) => {
-  const [application, setApplication] = useState({
+const ViewCard = ({curDocument, applications}) => {
+  let application={
         "company": "",
         "dateApplied": "",
         "salary": "",
@@ -15,11 +15,13 @@ const ViewCard = ({curDocument}) => {
         "jobDesc": "",
         "userId": "",
         "docId": ""
-      });
-  const ref = firebase.firestore().collection('Applications').doc(curDocument);
-  ref.get().then((doc)=>{
-    setApplication(doc.data());
-  });
+      };
+  for(let i = 0; i < applications.length; i++){
+    if(applications[i].docId === curDocument){
+      application = applications[i];
+      break;
+    }
+  }
   
   let history = useHistory();
   const goToAddCard = () => {

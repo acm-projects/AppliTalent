@@ -1,13 +1,28 @@
 import firebase from '../firebase';
 import React, { useState, useCallback, useContext } from "react";
 import './Login.css';
-import { Redirect, withRouter} from "react-router-dom";
+import { Redirect, withRouter, useHistory} from "react-router-dom";
 import { AuthContext } from "../Context/Auth.js";
 let forgotUserPassLink = "";
 
-const Login = ({ history }) => {
+const Login = ({setApplications}) => {
+  let history = useHistory();
   const [isLogin, setIsLogin] = useState(true);
   const [isFlipping, setIsFlipping] = useState(false);
+  const getApplications = () => {
+      console.log("gettheappli");
+      const ref = firebase.firestore().collection("Applications");
+      ref.onSnapshot((snapshot) => {
+          const apps = [];
+          snapshot.forEach(doc => {
+              if(doc.data().userId === firebase.auth().currentUser.uid)
+              {
+                apps.push(doc.data());
+              }
+          })
+          setApplications(apps);
+      })
+  };
   const handleSignUp = useCallback(async event => {
     event.preventDefault();
     clearSignupError();
@@ -42,6 +57,7 @@ const Login = ({ history }) => {
       const { email, password } = event.target.elements;
       firebase.auth().signInWithEmailAndPassword(email.value, password.value)
       .then(() => {
+        getApplications();
         history.push("/");
       })
       .catch(err => {

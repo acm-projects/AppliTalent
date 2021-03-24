@@ -5,23 +5,9 @@ import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 
 
-const Home = ({setCurDocument}) => {
+const Home = ({applications, setCurDocument, setApplications}) => {
   let history = useHistory();
-  const [applications, setApplications] = useState([]);
 
-  const getApplications = () => {
-    const ref = firebase.firestore().collection("Applications");
-        ref.onSnapshot((snapshot) => {
-            const apps = [];
-            snapshot.forEach(doc => {
-                if(doc.data().userId === firebase.auth().currentUser.uid)
-                {
-                  apps.push(doc.data());
-                }
-            })
-            setApplications(apps);
-        })
-  };
   const sortCards = () => {
     console.log("RAN");
     const whatSort = document.getElementsByClassName("dropDown")[0].value;
@@ -51,9 +37,7 @@ const Home = ({setCurDocument}) => {
       setApplications(sorted);
     }
   };
-  useEffect(() => {
-    getApplications();
-  }, []);
+  
 
   const goToAddCard = () => {
     history.push("/addCard")
