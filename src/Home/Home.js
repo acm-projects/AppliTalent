@@ -22,8 +22,35 @@ const Home = ({setCurDocument}) => {
             setApplications(apps);
         })
   };
-
-
+  const sortCards = () => {
+    console.log("RAN");
+    const whatSort = document.getElementsByClassName("dropDown")[0].value;
+    console.log(whatSort);
+    if(whatSort === "company"){
+      const sorted = [...applications].sort((a, b) => {
+        if(a.company < b.company) { return -1; }
+        if(a.company > b.company) { return 1; }
+        return 0;
+      });
+      setApplications(sorted);
+    }
+    else if(whatSort === "dateApplied"){
+      const sorted = [...applications].sort((a, b) => {
+        if(a.dateApplied > b.dateApplied) { return -1; }
+        if(a.dateApplied < b.dateApplied) { return 1; }
+        return 0;
+      });
+      setApplications(sorted);
+    }
+    else if(whatSort === "salary"){
+      const sorted = [...applications].sort((a, b) => {
+        if(a.salary > b.salary) { return -1; }
+        if(a.salary < b.salary) { return 1; }
+        return 0;
+      });
+      setApplications(sorted);
+    }
+  };
   useEffect(() => {
     getApplications();
   }, []);
@@ -51,12 +78,12 @@ const Home = ({setCurDocument}) => {
           </div>
           
           <select className="dropDown">
-            <option value="mostRecent">Most Recent</option>
+            <option value="dateApplied">Most Recent</option>
             <option value="company">Company</option>
-            <option value="Location">Location</option>
-            <option value="Salary">Salary</option>
+            <option value="location">Location</option>
+            <option value="salary">Salary</option>
           </select>
-          <button className="submitSort" type="button" value="Submit">Sort</button>
+          <button className="submitSort" type="button" onClick={sortCards} value="Submit">Sort</button>
           
         </div>
       </div>

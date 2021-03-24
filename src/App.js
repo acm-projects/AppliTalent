@@ -10,11 +10,12 @@ import { BrowserRouter as Router, Route} from "react-router-dom";
 
 const App = () => {
     const [curDocument, setCurDocument] = useState("");
+    const [applications, setApplications] = useState([]);
     return (
       <AuthProvider>
         <Router>
           <div className="App">
-            <PrivateRoute exact path="/" component={() => <Home setCurDocument={setCurDocument}/>} />
+            <PrivateRoute exact path="/" component={() => <Home setCurDocument={setCurDocument} applications={applications} setApplications={setApplications}/>} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/addCard" component={AddCard} />
             <Route exact path="/viewCard" component={() => <ViewCard curDocument={curDocument}/>} />
