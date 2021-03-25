@@ -20,7 +20,14 @@ const Login = ({setApplications}) => {
                 apps.push(doc.data());
               }
           })
-          setApplications(apps);
+          const sorted = [...apps].sort((a, b) => {
+            if(a.dateApplied > b.dateApplied) { return -1; }
+            if(a.dateApplied < b.dateApplied) { return 1; }
+            return 0;
+          });
+          localStorage.setItem("localArr", JSON.stringify(sorted));
+          //console.log(JSON.parse(localStorage.getItem("localArr")));
+          setApplications(sorted);
       })
   };
   const handleSignUp = useCallback(async event => {

@@ -1,8 +1,116 @@
-.backToHome {
+input {
+  border: none;
+}
+.underTopBar {
+  width: 1500px;
+  margin-left: 225px;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.viewCompany {
+  margin-top: 50px;
+  font-size: 70px;
+  font-weight: bold;
+  width: auto;
+  height: auto;
+  display: block;
+}
+.viewJobTitle {
+  font-size: 40px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+.viewLocation {
+  font-size: 25px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+.viewDateApplied {
+  font-size: 25px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+.viewSalary {
+  font-size: 25px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+.viewStatus {
+  font-size: 25px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+.jobDescLabel {
+  font-size: 30px;
+  margin-bottom: 0px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+.viewJobDesc {
+  border: none;
+  outline: none;
+  font-size: 30px;
+  margin-bottom: 0px;
+  width: 1500px;
+  height: 500px;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.backToHomeView {
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 1830px;
+  background-image: url(./back.png);
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-size: 67%;
+  cursor: pointer;
+}
+.deleteCardView {
+  position: absolute;
+  margin-top: 150px;
+  margin-left: 1825px;
+  background-image: url(./deleteCard.png);
+  width: 70px;
+  height: 70px;
+  background-repeat: no-repeat;
+  background-size: 67%;
+  cursor: pointer;
+}
+.updateCardView {
+  position: absolute;
+  margin-top: 210px;
+  margin-left: 1830px;
+  background-image: url(./edit.png);
+  width: 60px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: 67%;
+  cursor: pointer;
+}
+.viewCardBack {
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 35px;
+  background-image: url(./viewCardBack.png);
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-size: 67%;
+  cursor: pointer;
+}
+.viewCardFront {
   display: inline-block;
   margin-top: 30px;
   margin-left: 350px;
-  background-image: url(./back.png);
+  background-image: url(./viewCardFront.png);
   width: 50px;
   height: 50px;
   background-repeat: no-repeat;

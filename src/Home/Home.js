@@ -4,13 +4,26 @@ import './Home.css';
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 
+function useForceUpdate(){
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update the state to force render
+}
 
-const Home = ({applications, setCurDocument, setApplications}) => {
+const Home = ({setCurDocument, setSortState}) => {
   let history = useHistory();
+  const forceUpdate = useForceUpdate();
+  let applications = JSON.parse(localStorage.getItem("localArr"));
+  let whatSort  = "dateApplied";
+  const setApplications = (sorted)=>{
+    localStorage.setItem("localArr", JSON.stringify(sorted));
+  };
+  useEffect(()=>{
+    applications = JSON.parse(localStorage.getItem("localArr"));
+  }, []);
 
   const sortCards = () => {
-    console.log("RAN");
-    const whatSort = document.getElementsByClassName("dropDown")[0].value;
+    whatSort = document.getElementsByClassName("dropDown")[0].value;
+    setSortState(whatSort);
     console.log(whatSort);
     if(whatSort === "company"){
       const sorted = [...applications].sort((a, b) => {
@@ -19,6 +32,8 @@ const Home = ({applications, setCurDocument, setApplications}) => {
         return 0;
       });
       setApplications(sorted);
+      localStorage.setItem("localArr", JSON.stringify(sorted));
+      forceUpdate();
     }
     else if(whatSort === "dateApplied"){
       const sorted = [...applications].sort((a, b) => {
@@ -27,6 +42,8 @@ const Home = ({applications, setCurDocument, setApplications}) => {
         return 0;
       });
       setApplications(sorted);
+      localStorage.setItem("localArr", JSON.stringify(sorted));
+      forceUpdate();
     }
     else if(whatSort === "salary"){
       const sorted = [...applications].sort((a, b) => {
@@ -35,10 +52,16 @@ const Home = ({applications, setCurDocument, setApplications}) => {
         return 0;
       });
       setApplications(sorted);
+      localStorage.setItem("localArr", JSON.stringify(sorted));
+      forceUpdate();
     }
   };
   
-
+  const logout = () =>{
+    let emptyArr = [];
+    localStorage.setItem("localArr", JSON.stringify(emptyArr));
+    firebase.auth().signOut();
+  };
   const goToAddCard = () => {
     history.push("/addCard")
   };
@@ -50,7 +73,7 @@ const Home = ({applications, setCurDocument, setApplications}) => {
         <div className="webNameDivHome">
             <label className="webNameHome">GoHire</label>
         </div>
-        <div className="signOut" onClick={() => firebase.auth().signOut()} ></div>
+        <div className="signOut" onClick={logout} ></div>
         <div className="addCard" onClick={goToAddCard}></div>
         <div className="notifBell"></div>
       </div>
@@ -61,24 +84,24 @@ const Home = ({applications, setCurDocument, setApplications}) => {
           <label className="sortLabel">Sort By:</label>
           </div>
           
-          <select className="dropDown">
+          <select onChange={sortCards} className="dropDown">
+            <option>Select</option>
             <option value="dateApplied">Most Recent</option>
             <option value="company">Company</option>
-            <option value="location">Location</option>
             <option value="salary">Salary</option>
           </select>
-          <button className="submitSort" type="button" onClick={sortCards} value="Submit">Sort</button>
           
         </div>
       </div>
       <div className="appliIndex">
+        <p className="label5">Salary</p>
         <p className="label1">Company</p>
         <p className="label2">Date Applied</p>
         <p className="label3">Position</p>
         <p className="label4">Status</p>
       </div>
       <div className="applications">
-        {applications.map((application, index) => <AppliCard application={application} key={index} setCurDocument={setCurDocument}/>)}
+        {applications.map((application, index) => <AppliCard setCurDocument={setCurDocument} application={application} key={index} whatSort={whatSort} setApplications={setApplications}/>)}
       </div>
     </div>
     

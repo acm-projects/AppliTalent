@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import "./AddCard.css";
 import firebase from '../firebase';
 
-const AddCard = () => {
+const AddCard = ({setApplications, applications, whatSort}) => {
     let history = useHistory();
     const [company, setCompanyName] = useState("");
     const [dateApplied, setDateApplied] = useState("");
@@ -48,7 +48,7 @@ const AddCard = () => {
 
     const addCard = (event) => {
       //console.log(firebase.firestore().collection("Applications").doc().id);
-      const res = firebase.firestore().collection("Applications").add({
+      const curCard = {
         company,
         dateApplied,
         salary,
@@ -58,19 +58,50 @@ const AddCard = () => {
         jobDesc,
         userId,
         docId
-      }).then(docRef => {
+      };
+      const res = firebase.firestore().collection("Applications").add(curCard).then(docRef => {
         firebase.firestore().collection("Applications").doc(docRef.id).update({docId: docRef.id});
       });
+      let tmpArr = JSON.parse(localStorage.getItem("localArr"));
+      tmpArr.push(curCard);
+      if(whatSort === "company"){
+        const sorted = [...tmpArr].sort((a, b) => {
+          if(a.company < b.company) { return -1; }
+          if(a.company > b.company) { return 1; }
+          return 0;
+        });
+        setApplications(sorted);
+        localStorage.setItem("localArr", JSON.stringify(sorted));
+      }
+      else if(whatSort === "dateApplied"){
+        const sorted = [...tmpArr].sort((a, b) => {
+          if(a.dateApplied > b.dateApplied) { return -1; }
+          if(a.dateApplied < b.dateApplied) { return 1; }
+          return 0;
+        });
+        setApplications(sorted);
+        localStorage.setItem("localArr", JSON.stringify(sorted));
+      }
+      else if(whatSort === "salary"){
+        const sorted = [...tmpArr].sort((a, b) => {
+          if(a.salary > b.salary) { return -1; }
+          if(a.salary < b.salary) { return 1; }
+          return 0;
+        });
+        setApplications(sorted);
+        localStorage.setItem("localArr", JSON.stringify(sorted));
+      }
       const arr = document.getElementsByTagName("INPUT");
       for(let i = 0; i < arr.length; i++){
         arr[i].value = "";
       }
+      goHome();
     };
   
       return (
         <div className = "wholeCardPage">
           <div className="topBarCard">
-            <div className="logo"></div>
+            <div className="logo2"></div>
             <div className="siteNameDiv">
               <label className="webNameCard">GoHire</label>
             </div>
@@ -89,7 +120,7 @@ const AddCard = () => {
               <input className="Status" placeholder="Status" value={status} onChange={handleStatusChange}></input>
               <input className="Salary" placeholder="Salary/Wage" value={salary} onChange={handleSalaryChange}></input>
               <input className="Location" placeholder="Location" value={location} onChange={handleLocationChange}></input>
-              <input className="Description" placeholder="Description" value={jobDesc} onChange={handleDescriptionChange}></input>
+              <input className="Description" type="text" placeholder="Description" value={jobDesc} onChange={handleDescriptionChange}></input>
               <button onClick={addCard} className="submitAddCard" type="button">Add Card</button>
             </form>
           </div>
