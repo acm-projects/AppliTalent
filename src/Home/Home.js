@@ -101,7 +101,7 @@ const Home = ({setCurDocument, setSortState}) => {
         <p className="label4">Status</p>
       </div>
       <div className="applications">
-        {applications.map((application, index) => <AppliCard setCurDocument={setCurDocument} application={application} key={index} whatSort={whatSort} setApplications={setApplications}/>)}
+        {(applications != null)?applications.map((application, index) => <AppliCard setCurDocument={setCurDocument} application={application} key={index} whatSort={whatSort} setApplications={setApplications}/>):null}
       </div>
     </div>
     
