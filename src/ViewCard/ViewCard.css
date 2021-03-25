@@ -1,6 +1,38 @@
 input {
   border: none;
 }
+.confirmChange {
+  display: none;
+  background-color: #94618e;
+  color: #f8eee7;
+  border: none;
+  outline: none;
+  width: 125px;
+  height: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.confirmChange:hover {
+  cursor: pointer;
+}
+.discardChange {
+  display: none;
+  background-color: #94618e;
+  color: #f8eee7;
+  border: none;
+  outline: none;
+  width: 125px;
+  height: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.discardChange:hover {
+  cursor: pointer;
+}
 .underTopBar {
   width: 1500px;
   margin-left: 225px;
@@ -58,13 +90,22 @@ input {
   font-size: 30px;
   margin-bottom: 0px;
   width: 1500px;
-  height: 500px;
+  height: 450px;
   display: block;
   font-family: Arial, Helvetica, sans-serif;
 }
+.submitted {
+  position: absolute;
+  margin-left: 900px;
+  margin-top: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #94618e;
+  opacity: 0;
+}
 .backToHomeView {
   position: absolute;
-  margin-top: 100px;
+  margin-top: 140px;
   margin-left: 1830px;
   background-image: url(./back.png);
   width: 50px;
@@ -75,7 +116,7 @@ input {
 }
 .deleteCardView {
   position: absolute;
-  margin-top: 150px;
+  margin-top: 360px;
   margin-left: 1825px;
   background-image: url(./deleteCard.png);
   width: 70px;
@@ -86,7 +127,7 @@ input {
 }
 .updateCardView {
   position: absolute;
-  margin-top: 210px;
+  margin-top: 240px;
   margin-left: 1830px;
   background-image: url(./edit.png);
   width: 60px;

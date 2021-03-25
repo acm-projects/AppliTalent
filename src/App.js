@@ -20,7 +20,7 @@ const App = () => {
             <PrivateRoute exact path="/" component={() => <Home setCurDocument={setCurDocument}  setSortState={setSortState}/>} />
             <Route exact path="/login" component={() => <Login setApplications={setApplications}/>} />
             <Route exact path="/addCard" component={() => <AddCard setApplications={setApplications} applications={applications} sortState={sortState} />} />
-            <Route exact path="/viewCard" component={() => <ViewCard curDocument={curDocument} setCurDocument={setCurDocument} applications={applications}/>} />
+            <Route exact path="/viewCard" component={() => <ViewCard curDocument={curDocument} setCurDocument={setCurDocument} applications={applications} setApplications={setApplications}/>} />
           </div>
         </Router>
       </AuthProvider>

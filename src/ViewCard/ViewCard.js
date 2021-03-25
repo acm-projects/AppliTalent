@@ -7,7 +7,7 @@ function useForceUpdate(){
     return () => setValue(value => value + 1); // update the state to force render
 }
 
-const ViewCard = ({curDocument, applications,  setCurDocument}) => {
+const ViewCard = ({curDocument, setApplications}) => {
   let curIndex = 0;
   const forceUpdate = useForceUpdate();
   let application={
@@ -22,7 +22,7 @@ const ViewCard = ({curDocument, applications,  setCurDocument}) => {
         "docId": ""
       };
   
-  applications = JSON.parse(localStorage.getItem("localArr"));
+  let applications = JSON.parse(localStorage.getItem("localArr"));
   for(let i = 0; i < applications.length; i++){
     if(applications[i].docId === curDocument){
       application = applications[i];
@@ -51,6 +51,32 @@ const ViewCard = ({curDocument, applications,  setCurDocument}) => {
     goHome();
   };
   const updateCard = () =>{
+    let editedAppli = {
+      company:document.getElementsByClassName("viewCompany")[0].value,
+      dateApplied:document.getElementsByClassName("viewDateApplied")[0].value,
+      salary:document.getElementsByClassName("viewSalary")[0].value,
+      location:document.getElementsByClassName("viewLocation")[0].value,
+      status:document.getElementsByClassName("viewStatus")[0].value,
+      jobTitle:document.getElementsByClassName("viewJobTitle")[0].value,
+      jobDesc:document.getElementsByClassName("viewJobDesc")[0].value,
+    };
+    firebase.firestore().collection("Applications").doc(curDocument).update(editedAppli);
+    for(let i = 0; i < applications.length; i++){
+      if(applications.docId === curDocument){
+        applications[i]=editedAppli;
+      }
+    }
+    localStorage.setItem("localArr", JSON.stringify(applications));
+    document.getElementsByClassName("confirmChange")[0].style.display="none";
+    submitSymbol();
+  };
+  const submitSymbol = ()=>{
+    document.getElementsByClassName('submitted')[0].style.opacity = 1;
+  };
+  const editMode = ()=>{
+    document.getElementsByClassName("confirmChange")[0].style.display="inline-block";
+  };
+  const discardChange = ()=>{
 
   };
   const logout = () =>{
@@ -60,9 +86,10 @@ const ViewCard = ({curDocument, applications,  setCurDocument}) => {
   };
   return (
     <div className = "wholeHome">
+      <div className="submitted">updated</div>
       <div className="backToHomeView" onClick={goHome}></div>
       <div className="deleteCardView" onClick={deleteCard}></div>
-      <div className="updateCardView" onClick={updateCard}></div>
+      <div className="updateCardView" onClick={editMode}></div>
       <div className="topBarHome">
         <div className="logoHome"></div>
         <div className="webNameDivHome">
@@ -81,7 +108,8 @@ const ViewCard = ({curDocument, applications,  setCurDocument}) => {
         <input type="text" className="viewStatus" defaultValue={application.status}></input>
         <p className="jobDescLabel">Job Description:</p>
         <textarea type="text" className="viewJobDesc" defaultValue={application.jobDesc}></textarea>
-        <button type="button" className="confirmChange">change</button>
+        <button type="button" className="confirmChange" onClick={updateCard}>Edit</button>
+        <button type="button" className="discardChange" onClick={discardChange}>Edit</button>
       </div>
       
     </div>
