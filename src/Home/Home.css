@@ -151,6 +151,7 @@
   width: 20px;
   height: 20px;
   background-image: url("./redDot.png");
+  cursor: pointer;
 }
 .notifBell {
   background-image: url("notiBell.png");

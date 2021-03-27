@@ -148,7 +148,7 @@ const Home = ({setCurDocument, setSortState}) => {
         <div className="signOut" onClick={logout} ></div>
         <div className="addCard" onClick={goToAddCard}></div>
         <div className="notifBell" onClick={()=>setModalOpen(true)}></div>
-        <div className="redDot">{numNotif}</div>
+        <div className="redDot" onClick={()=>setModalOpen(true)}>{numNotif}</div>
       </div>
       <div className="middleBar">
         <input className="searchBar" placeholder="Search" onKeyUp={filterFunction}></input>
