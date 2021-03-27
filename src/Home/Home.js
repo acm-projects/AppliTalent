@@ -18,7 +18,11 @@ const Home = ({setCurDocument, setSortState}) => {
   let dotStyleString = {display:'block'};
   const forceUpdate = useForceUpdate();
   let applications = JSON.parse(localStorage.getItem("localArr"));
+  if(applications == null)
+    applications = [];
   let applications2 = JSON.parse(localStorage.getItem("backUp"));
+  if(applications2 == null)
+    applications2 = [];
   let notifApplications = [];
   let whatSort  = "dateApplied";
 
