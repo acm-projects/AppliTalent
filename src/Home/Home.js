@@ -1,6 +1,8 @@
 import firebase from '../firebase';
 import AppliCard from "./AppliCard.js";
+import NotifCard from "./NotifCard.js"
 import './Home.css';
+import Modal from 'react-modal';
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -8,20 +10,41 @@ function useForceUpdate(){
     const [value, setValue] = useState(0); // integer state
     return () => setValue(value => value + 1); // update the state to force render
 }
-
+Modal.setAppElement('#root');
 const Home = ({setCurDocument, setSortState}) => {
+  const [modalOpen, setModalOpen] = useState(false);
   let history = useHistory();
+  let numNotif = 0;
   const forceUpdate = useForceUpdate();
-
   let applications = JSON.parse(localStorage.getItem("localArr"));
+  let notifApplications = [];
+  
   let whatSort  = "dateApplied";
-  const setApplications = (sorted)=>{
-    localStorage.setItem("localArr", JSON.stringify(sorted));
-    localStorage.setItem("backUp", JSON.stringify(sorted));
-  };
+
   useEffect(()=>{
     applications = JSON.parse(localStorage.getItem("localArr"));
   }, []);
+  function dateDiffInDays(date1, date2) {
+  // Discard the time and time-zone information.
+    const diffTime = Math.abs(date2 - date1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    return diffDays;
+  }
+  const updateNotifAppli = ()=>{
+    applications.map((application, index) => {
+            let today = new Date();
+            let appliDate = new Date(application.dateApplied);
+            if(dateDiffInDays(today, appliDate) === 14)
+              notifApplications.push(application);
+      });
+      numNotif = notifApplications.length;
+      if(numNotif == 0){
+        document.getElementsByClassName("redDot")[0].style.display= "none";
+      }
+      console.log(notifApplications.length);
+  };
+
+  updateNotifAppli();
 
   const sortCards = () => {
     whatSort = document.getElementsByClassName("dropDown")[0].value;
@@ -58,7 +81,6 @@ const Home = ({setCurDocument, setSortState}) => {
       forceUpdate();
     }
   };
-  
   const logout = () =>{
     let emptyArr = [];
     localStorage.setItem("localArr", JSON.stringify(emptyArr));
@@ -83,8 +105,41 @@ const Home = ({setCurDocument, setSortState}) => {
     localStorage.setItem("localArr", JSON.stringify(newApplications));
     forceUpdate();
   };
+
   return (
     <div className = "wholeHome">
+      <div className="notifModal">
+        <Modal
+        isOpen={modalOpen} 
+        onRequestClose={()=>setModalOpen(false)}
+        style={
+          {
+            overlay:{
+              backgroundColor:'rgba(255,255,255,0.5)',
+              
+            },
+            content:{
+              borderRadius:"10px",
+              width:"50%",
+              margin:"auto",
+              color: '#94618E',
+              display: 'inline-block',
+              fontFamily:"Arial, Helvetica, sans-serif",
+            }
+          }
+        }>
+          <div className="notifTopBar">
+            <h2 className="notifTitle">Applied 2 Weeks Ago</h2>
+            <div className="notifExit" onClick={()=> setModalOpen(false)}></div>
+          </div>
+          {applications.map((application, index) => {
+            let today = new Date();
+            let appliDate = new Date(application.dateApplied);
+            if(dateDiffInDays(today, appliDate) === 14)
+              return <NotifCard setCurDocument={setCurDocument} application={application} key={index}/>
+          })}
+        </Modal>
+      </div>
       <div className="topBarHome">
         <div className="logoHome"></div>
         <div className="webNameDivHome">
@@ -92,7 +147,8 @@ const Home = ({setCurDocument, setSortState}) => {
         </div>
         <div className="signOut" onClick={logout} ></div>
         <div className="addCard" onClick={goToAddCard}></div>
-        <div className="notifBell"></div>
+        <div className="notifBell" onClick={()=>setModalOpen(true)}></div>
+        <div className="redDot">{numNotif}</div>
       </div>
       <div className="middleBar">
         <input className="searchBar" placeholder="Search" onKeyUp={filterFunction}></input>

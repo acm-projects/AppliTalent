@@ -95,6 +95,16 @@ const AddCard = ({setApplications}) => {
         localStorage.setItem("localArr", JSON.stringify(sorted));
         localStorage.setItem("backUp", JSON.stringify(sorted));
       }
+      else{
+         const sorted = [...tmpArr].sort((a, b) => {
+          if(a.dateApplied > b.dateApplied) { return -1; }
+          if(a.dateApplied < b.dateApplied) { return 1; }
+          return 0;
+        });
+        setApplications(sorted);
+        localStorage.setItem("localArr", JSON.stringify(sorted));
+        localStorage.setItem("backUp", JSON.stringify(sorted));
+      }
       const arr = document.getElementsByTagName("INPUT");
       for(let i = 0; i < arr.length; i++){
         arr[i].value = "";

@@ -105,7 +105,6 @@ const ViewCard = () => {
         </div>
         <div className="signOut" onClick={logout} ></div>
         <div className="addCard" onClick={goToAddCard}></div>
-        <div className="notifBell"></div>
       </div>
       <div className="underTopBar">
         <input type="text" className="viewCompany" defaultValue={application.company}></input>
