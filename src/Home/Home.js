@@ -38,10 +38,6 @@ const Home = ({setCurDocument, setSortState}) => {
               notifApplications.push(application);
       });
       numNotif = notifApplications.length;
-      if(numNotif == 0){
-        document.getElementsByClassName("redDot")[0].style.display= "none";
-      }
-      console.log(notifApplications.length);
   };
 
   updateNotifAppli();
@@ -105,7 +101,11 @@ const Home = ({setCurDocument, setSortState}) => {
     localStorage.setItem("localArr", JSON.stringify(newApplications));
     forceUpdate();
   };
-
+  const checkRedDot =()=>{
+        if(numNotif == 0){
+          document.getElementsByClassName("redDot")[0].style.display= "none";
+      }
+  };
   return (
     <div className = "wholeHome">
       <div className="notifModal">
@@ -149,6 +149,7 @@ const Home = ({setCurDocument, setSortState}) => {
         <div className="addCard" onClick={goToAddCard}></div>
         <div className="notifBell" onClick={()=>setModalOpen(true)}></div>
         <div className="redDot" onClick={()=>setModalOpen(true)}>{numNotif}</div>
+        {checkRedDot()}
       </div>
       <div className="middleBar">
         <input className="searchBar" placeholder="Search" onKeyUp={filterFunction}></input>
