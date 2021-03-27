@@ -3,7 +3,8 @@ import { useHistory } from 'react-router-dom';
 import "./AddCard.css";
 import firebase from '../firebase';
 
-const AddCard = ({setApplications, applications, whatSort}) => {
+const AddCard = ({setApplications}) => {
+    let whatSort = "";
     let history = useHistory();
     const [company, setCompanyName] = useState("");
     const [dateApplied, setDateApplied] = useState("");
@@ -72,6 +73,7 @@ const AddCard = ({setApplications, applications, whatSort}) => {
         });
         setApplications(sorted);
         localStorage.setItem("localArr", JSON.stringify(sorted));
+        localStorage.setItem("backUp", JSON.stringify(sorted));
       }
       else if(whatSort === "dateApplied"){
         const sorted = [...tmpArr].sort((a, b) => {
@@ -81,6 +83,7 @@ const AddCard = ({setApplications, applications, whatSort}) => {
         });
         setApplications(sorted);
         localStorage.setItem("localArr", JSON.stringify(sorted));
+        localStorage.setItem("backUp", JSON.stringify(sorted));
       }
       else if(whatSort === "salary"){
         const sorted = [...tmpArr].sort((a, b) => {
@@ -90,6 +93,7 @@ const AddCard = ({setApplications, applications, whatSort}) => {
         });
         setApplications(sorted);
         localStorage.setItem("localArr", JSON.stringify(sorted));
+        localStorage.setItem("backUp", JSON.stringify(sorted));
       }
       const arr = document.getElementsByTagName("INPUT");
       for(let i = 0; i < arr.length; i++){

@@ -7,8 +7,9 @@ function useForceUpdate(){
     return () => setValue(value => value + 1); // update the state to force render
 }
 
-const ViewCard = ({curDocument, setApplications}) => {
+const ViewCard = () => {
   let curIndex = 0;
+  let curDocument= new URLSearchParams(window.location.search).get('document');
   const forceUpdate = useForceUpdate();
   let application={
         "company": "",
@@ -48,6 +49,7 @@ const ViewCard = ({curDocument, setApplications}) => {
       }
     }
     localStorage.setItem("localArr", JSON.stringify(tmpArr));
+    localStorage.setItem("backUp", JSON.stringify(tmpArr));
     goHome();
   };
   const updateCard = () =>{
@@ -59,6 +61,8 @@ const ViewCard = ({curDocument, setApplications}) => {
       status:document.getElementsByClassName("viewStatus")[0].value,
       jobTitle:document.getElementsByClassName("viewJobTitle")[0].value,
       jobDesc:document.getElementsByClassName("viewJobDesc")[0].value,
+      userId: application.userId,
+      docId:application.docId
     };
     firebase.firestore().collection("Applications").doc(curDocument).update(editedAppli);
     for(let i = 0; i < applications.length; i++){
@@ -67,6 +71,7 @@ const ViewCard = ({curDocument, setApplications}) => {
       }
     }
     localStorage.setItem("localArr", JSON.stringify(applications));
+    localStorage.setItem("backUp", JSON.stringify(applications));
     document.getElementsByClassName("confirmChange")[0].style.display="none";
     submitSymbol();
   };
@@ -80,9 +85,12 @@ const ViewCard = ({curDocument, setApplications}) => {
 
   };
   const logout = () =>{
+
     let emptyArr = [];
     localStorage.setItem("localArr", JSON.stringify(emptyArr));
+    localStorage.setItem("backUp", JSON.stringify(emptyArr));
     firebase.auth().signOut();
+    history.push("/");
   };
   return (
     <div className = "wholeHome">

@@ -19,8 +19,8 @@ const App = () => {
           <div className="App">
             <PrivateRoute exact path="/" component={() => <Home setCurDocument={setCurDocument}  setSortState={setSortState}/>} />
             <Route exact path="/login" component={() => <Login setApplications={setApplications}/>} />
-            <Route exact path="/addCard" component={() => <AddCard setApplications={setApplications} applications={applications} sortState={sortState} />} />
-            <Route exact path="/viewCard" component={() => <ViewCard curDocument={curDocument} setCurDocument={setCurDocument} applications={applications} setApplications={setApplications}/>} />
+            <Route exact path="/addCard" component={() => <AddCard setApplications={setApplications} sortState={sortState} />} />
+            <Route path="/viewCard" component={() => <ViewCard/>} />
           </div>
         </Router>
       </AuthProvider>

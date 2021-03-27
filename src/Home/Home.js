@@ -12,10 +12,12 @@ function useForceUpdate(){
 const Home = ({setCurDocument, setSortState}) => {
   let history = useHistory();
   const forceUpdate = useForceUpdate();
+
   let applications = JSON.parse(localStorage.getItem("localArr"));
   let whatSort  = "dateApplied";
   const setApplications = (sorted)=>{
     localStorage.setItem("localArr", JSON.stringify(sorted));
+    localStorage.setItem("backUp", JSON.stringify(sorted));
   };
   useEffect(()=>{
     applications = JSON.parse(localStorage.getItem("localArr"));
@@ -31,8 +33,8 @@ const Home = ({setCurDocument, setSortState}) => {
         if(a.company > b.company) { return 1; }
         return 0;
       });
-      setApplications(sorted);
       localStorage.setItem("localArr", JSON.stringify(sorted));
+      localStorage.setItem("backUp", JSON.stringify(sorted));
       forceUpdate();
     }
     else if(whatSort === "dateApplied"){
@@ -41,8 +43,8 @@ const Home = ({setCurDocument, setSortState}) => {
         if(a.dateApplied < b.dateApplied) { return 1; }
         return 0;
       });
-      setApplications(sorted);
       localStorage.setItem("localArr", JSON.stringify(sorted));
+      localStorage.setItem("backUp", JSON.stringify(sorted));
       forceUpdate();
     }
     else if(whatSort === "salary"){
@@ -51,8 +53,8 @@ const Home = ({setCurDocument, setSortState}) => {
         if(a.salary < b.salary) { return 1; }
         return 0;
       });
-      setApplications(sorted);
       localStorage.setItem("localArr", JSON.stringify(sorted));
+      localStorage.setItem("backUp", JSON.stringify(sorted));
       forceUpdate();
     }
   };
@@ -60,12 +62,27 @@ const Home = ({setCurDocument, setSortState}) => {
   const logout = () =>{
     let emptyArr = [];
     localStorage.setItem("localArr", JSON.stringify(emptyArr));
+    localStorage.setItem("backUp", JSON.stringify(emptyArr));
     firebase.auth().signOut();
   };
   const goToAddCard = () => {
     history.push("/addCard")
   };
-  
+  const filterFunction = () =>{
+    let searchValue = document.getElementsByClassName("searchBar")[0].value.toString().toLowerCase();
+    let newApplications = [];
+    applications = JSON.parse(localStorage.getItem("backUp"));
+    localStorage.setItem("localArr", JSON.stringify(applications));
+    for(let i = 0; i < applications.length; i++){
+      if(applications[i].company.toLowerCase().indexOf(searchValue) > -1 ||
+      applications[i].jobTitle.toLowerCase().indexOf(searchValue) > -1 ||
+      applications[i].status.toLowerCase().indexOf(searchValue) > -1){
+            newApplications.push(applications[i]);
+          }
+    }
+    localStorage.setItem("localArr", JSON.stringify(newApplications));
+    forceUpdate();
+  };
   return (
     <div className = "wholeHome">
       <div className="topBarHome">
@@ -78,7 +95,7 @@ const Home = ({setCurDocument, setSortState}) => {
         <div className="notifBell"></div>
       </div>
       <div className="middleBar">
-        <input className="searchBar" placeholder="Search"></input>
+        <input className="searchBar" placeholder="Search" onKeyUp={filterFunction}></input>
         <div className="sortByBlock">
           <div className = "sortBegin">
           <label className="sortLabel">Sort By:</label>
@@ -101,7 +118,7 @@ const Home = ({setCurDocument, setSortState}) => {
         <p className="label4">Status</p>
       </div>
       <div className="applications">
-        {(applications != null)?applications.map((application, index) => <AppliCard setCurDocument={setCurDocument} application={application} key={index} whatSort={whatSort} setApplications={setApplications}/>):null}
+        {(applications != null)?applications.map((application, index) => <AppliCard setCurDocument={setCurDocument} application={application} key={index}/>):null}
       </div>
     </div>
     

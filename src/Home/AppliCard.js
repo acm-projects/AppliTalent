@@ -7,7 +7,7 @@ const AppliCard = ({application, setCurDocument}) => {
   let history = useHistory();
   const viewAppli = ()=>{
     setCurDocument(application.docId);
-    history.push("/viewCard");
+    history.push(`/viewCard/?document=${application.docId}`);
   };
   return (
     <div onClick={viewAppli} className = "wholeAppliCard">

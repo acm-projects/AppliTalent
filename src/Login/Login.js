@@ -26,6 +26,7 @@ const Login = ({setApplications}) => {
             return 0;
           });
           localStorage.setItem("localArr", JSON.stringify(sorted));
+          localStorage.setItem("backUp", JSON.stringify(sorted));
           //console.log(JSON.parse(localStorage.getItem("localArr")));
           setApplications(sorted);
       })
