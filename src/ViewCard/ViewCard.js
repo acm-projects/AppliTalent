@@ -41,7 +41,8 @@ const ViewCard = () => {
     history.push("/");
   };
   const deleteCard = () =>{
-    firebase.firestore().collection('Applications').doc(curDocument).delete();
+    console.log(new URLSearchParams(window.location.search).get('document'));
+    firebase.firestore().collection('Applications').doc(new URLSearchParams(window.location.search).get('document')).delete();
     let tmpArr = JSON.parse(localStorage.getItem("localArr"));
     for(let i = 0; i < tmpArr.length; i++){
       if(tmpArr[i].docId === curDocument){

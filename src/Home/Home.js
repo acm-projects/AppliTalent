@@ -18,8 +18,8 @@ const Home = ({setCurDocument, setSortState}) => {
   let dotStyleString = {display:'block'};
   const forceUpdate = useForceUpdate();
   let applications = JSON.parse(localStorage.getItem("localArr"));
+  let applications2 = JSON.parse(localStorage.getItem("backUp"));
   let notifApplications = [];
-  
   let whatSort  = "dateApplied";
 
   useEffect(()=>{
@@ -32,7 +32,7 @@ const Home = ({setCurDocument, setSortState}) => {
     return diffDays;
   }
   const updateNotifAppli = ()=>{
-    applications.map((application, index) => {
+    applications2.map((application, index) => {
             let today = new Date();
             let appliDate = new Date(application.dateApplied);
             if(dateDiffInDays(today, appliDate) === 14)

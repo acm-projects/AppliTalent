@@ -6,7 +6,10 @@ import { useHistory } from 'react-router-dom';
 const AppliCard = ({application, setCurDocument}) => {
   let history = useHistory();
   const viewAppli = ()=>{
+
     setCurDocument(application.docId);
+    console.log(application);
+    console.log(application.docId);
     history.push(`/viewCard/?document=${application.docId}`);
   };
   return (

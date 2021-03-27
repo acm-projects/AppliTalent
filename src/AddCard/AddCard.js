@@ -62,8 +62,10 @@ const AddCard = ({setApplications}) => {
       };
       const res = firebase.firestore().collection("Applications").add(curCard).then(docRef => {
         firebase.firestore().collection("Applications").doc(docRef.id).update({docId: docRef.id});
+        curCard.docId = docRef.id;
       });
       let tmpArr = JSON.parse(localStorage.getItem("localArr"));
+      
       tmpArr.push(curCard);
       if(whatSort === "company"){
         const sorted = [...tmpArr].sort((a, b) => {
