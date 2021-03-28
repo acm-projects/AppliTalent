@@ -133,10 +133,16 @@ const AddCard = ({setApplications}) => {
               <input className="cmpName" placeholder="Company Name" value={company} onChange={handleCompanyNameChange}></input>
               <input type="date" className="Date" value={dateApplied} onChange={handleDateChange}></input>
               <input className="Position" placeholder="Position" value={jobTitle} onChange={handlePositionChange}></input>
-              <input className="Status" placeholder="Status" value={status} onChange={handleStatusChange}></input>
+              <select className="Status" placeholder="Status" value={status} onChange={handleStatusChange}>
+                <option value="Status">Status</option>
+                <option value="Accepted">Accepted</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Pending">Pending</option>
+                <option value="Negotiating">Negotiating</option>
+              </select>
               <input className="Salary" placeholder="Salary/Wage" value={salary} onChange={handleSalaryChange}></input>
               <input className="Location" placeholder="Location" value={location} onChange={handleLocationChange}></input>
-              <input className="Description" type="text" placeholder="Description" value={jobDesc} onChange={handleDescriptionChange}></input>
+              <textarea className="Description" type="text" placeholder="Description" value={jobDesc} onChange={handleDescriptionChange}></textarea>
               <button onClick={addCard} className="submitAddCard" type="button">Add Card</button>
             </form>
           </div>
