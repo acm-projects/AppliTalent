@@ -31,7 +31,7 @@ const [email, setEmail] = useState("");
           <label for="email">Enter your email: </label>
           <input name="email" id="email" type="email" required value={email} onChange={handleEmailChange} />
           <button onClick={resetPassword}>Reset Email</button>
-          {success ? <p>An password reset email has been sent to your email.</p> : ""}
+          {success ? <p>A password reset email has been sent to your email.</p> : ""}
           {error ? <p>{error}</p> : ""}
         </div>
       );
