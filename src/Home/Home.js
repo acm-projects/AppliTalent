@@ -105,6 +105,9 @@ const Home = ({setCurDocument, setSortState}) => {
     localStorage.setItem("localArr", JSON.stringify(newApplications));
     forceUpdate();
   };
+  const goHome = () =>{
+      history.push("/");
+  };
   return (
     <div className = "wholeHome">
       <div className="notifModal">
@@ -140,7 +143,7 @@ const Home = ({setCurDocument, setSortState}) => {
         </Modal>
       </div>
       <div className="topBarHome">
-        <div className="logoHome"></div>
+        <div onClick={goHome} className="logoHome"></div>
         <div className="webNameDivHome">
             <label className="webNameHome">GoHire</label>
         </div>

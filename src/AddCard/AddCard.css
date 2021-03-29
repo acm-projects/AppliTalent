@@ -11,6 +11,7 @@
 }
 .topBarCard {
   background-color: #49274a;
+  cursor: pointer;
 }
 .cardAddCard {
   height: 75%;

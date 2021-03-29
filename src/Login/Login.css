@@ -1,7 +1,10 @@
 #loginForm {
   margin: 0;
 }
-
+.forgotUserPass {
+  cursor: pointer;
+  text-decoration: underline;
+}
 .loginWhole {
   position: fixed;
   height: 100%;

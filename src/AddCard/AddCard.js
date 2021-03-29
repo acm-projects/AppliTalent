@@ -116,7 +116,7 @@ const AddCard = ({setApplications}) => {
   
       return (
         <div className = "wholeCardPage">
-          <div className="topBarCard">
+          <div onClick={goHome} className="topBarCard">
             <div className="logo2"></div>
             <div className="siteNameDiv">
               <label className="webNameCard">GoHire</label>
