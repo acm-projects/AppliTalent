@@ -1,36 +1,13 @@
 import firebase from '../firebase';
 import React, { useState, useCallback, useContext } from "react";
 import './Login.css';
-import { Redirect, withRouter, useHistory} from "react-router-dom";
+import { Redirect, withRouter} from "react-router-dom";
 import { AuthContext } from "../Context/Auth.js";
 let forgotUserPassLink = "";
 
-const Login = ({setApplications}) => {
-  let history = useHistory();
+const Login = ({ history }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [isFlipping, setIsFlipping] = useState(false);
-  const getApplications = () => {
-      console.log("gettheappli");
-      const ref = firebase.firestore().collection("Applications");
-      ref.onSnapshot((snapshot) => {
-          const apps = [];
-          snapshot.forEach(doc => {
-              if(doc.data().userId === firebase.auth().currentUser.uid)
-              {
-                apps.push(doc.data());
-              }
-          })
-          const sorted = [...apps].sort((a, b) => {
-            if(a.dateApplied > b.dateApplied) { return -1; }
-            if(a.dateApplied < b.dateApplied) { return 1; }
-            return 0;
-          });
-          localStorage.setItem("localArr", JSON.stringify(sorted));
-          localStorage.setItem("backUp", JSON.stringify(sorted));
-          //console.log(JSON.parse(localStorage.getItem("localArr")));
-          setApplications(sorted);
-      })
-  };
   const handleSignUp = useCallback(async event => {
     event.preventDefault();
     clearSignupError();
@@ -65,7 +42,6 @@ const Login = ({setApplications}) => {
       const { email, password } = event.target.elements;
       firebase.auth().signInWithEmailAndPassword(email.value, password.value)
       .then(() => {
-        getApplications();
         history.push("/");
       })
       .catch(err => {
@@ -148,9 +124,7 @@ const Login = ({setApplications}) => {
     document.getElementsByClassName("pswdInvalid2")[0].style.opacity = 0;
   }
   const { currentUser } = useContext(AuthContext);
-  const goToForgot = ()=>{
-    history.push("/forgotPassword");
-  };
+
   if (currentUser) {
     return <Redirect to="/" />;
   }
@@ -162,19 +136,22 @@ const Login = ({setApplications}) => {
           <div className="webNameDiv">
             <label className="webName">GoHire</label>
           </div>
+          <div className="catchPhraseDiv">
+            <label className="catchPhrase">"We the People of the United States, in Order to form </label>
+          </div>
           <button onClick={flipLogin} className="signUpButton">Sign up</button>
         </div>
         <div className="loginBlock">
           <figure className="loginBlockFront">
             <label className="loginTitle">Login</label>
             <form id="loginForm" onSubmit={handleLogin}>
-              <input className="text1" type="email" name="email" placeholder="Email"></input>
+              <input className="text1" type="email" name="email" placeholder=" Username"></input>
               <p className="emailInvalid">That email does not exist</p>
-              <input className="text2" type="password" name="password" placeholder="Password"></input>
+              <input className="text2" type="password" name="password" placeholder=" Password"></input>
               <p className="pswdInvalid">Wrong password</p>
               <button className = "signInButton" type="submit">Sign in</button>
             </form>
-            <a className="forgotUserPass" onClick={goToForgot}>Forgot Username/Password?</a>
+            <a className="forgotUserPass" href={forgotUserPassLink}>Forgot Username/Password?</a>
           </figure>
           <figure className="loginBlockBack" onSubmit={handleSignUp}>
             <label className="signUpTitle">Sign up</label>
