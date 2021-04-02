@@ -260,6 +260,7 @@ input:focus {
   color: #8d8d8d;
   display: block;
   font-weight: bold;
+  cursor: pointer;
 }
 .signUpButton {
   display: inline-block;
