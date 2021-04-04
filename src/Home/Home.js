@@ -127,6 +127,9 @@ const Home = ({setCurDocument, setSortState}) => {
       document.getElementsByClassName("infoBar")[0].style.display="none";
     }
   };
+  const goToStats = ()=>{
+    history.push("/statistics");
+  };
   return (
     <div className = "wholeHome">
       <div className="leftArea">
@@ -138,17 +141,13 @@ const Home = ({setCurDocument, setSortState}) => {
           <div className="addPic" onClick={goToAddCard}></div>
           <div className="addCardName" onClick={goToAddCard}>Add Card</div>
         </div>
-        <div className="clickViewCard">
-          <div className="viewCardPic"></div>
-          <div className="viewCardName">View Card</div>
-        </div>
         <div className="notiClick">
           <div className="notiPic"><div className="bellNoti"></div><div className="redDot">{numNotif}</div></div>
           <div className="notiName">Notifications</div>
         </div>
         <div className="clickStats">
-          <div className="statsPic"></div>
-          <div className="statsName">Statistics</div>
+          <div className="statsPic" onClick={goToStats}></div>
+          <div className="statsName" onClick={goToStats}>Statistics</div>
         </div>
         <div className="signOut">
           <div className="signOutPic" onClick={logout}></div>

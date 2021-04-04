@@ -7,7 +7,8 @@ import AddCard from "./AddCard/AddCard.js"
 import ViewCard from "./ViewCard/ViewCard.js"
 import {AuthProvider} from "./Context/Auth.js"
 import ForgotPassword from "./ForgotPassword/ForgotPassword";
-import PrivateRoute from "./PrivateRoute.js"
+import PrivateRoute from "./PrivateRoute.js";
+import Statistics from "./Statistics/Statistics.js";
 import { BrowserRouter as Router, Route} from "react-router-dom";
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
             <Route exact path="/addCard" component={() => <AddCard setApplications={setApplications} sortState={sortState} />} />
             <Route path="/forgotPassword" component={() => <ForgotPassword/>} />
             <Route path="/viewCard" component={() => <ViewCard/>} />
+            <Route path="/statistics" component={() => <Statistics/>} />
           </div>
         </Router>
       </AuthProvider>
