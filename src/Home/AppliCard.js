@@ -34,15 +34,19 @@ const AppliCard = ({isGrid, application, setCurDocument}) => {
         <div className="appliComp">{application.company}</div>
         <img className="statusImg" src={appliPic()} title={application.status}></img>
         <div className="jobTitleAppliCard">{application.jobTitle}</div>
+        <div className="jobSalaryCard">{application.salary}</div>
+        <div className="jobDateAppliedCard">Applied {application.dateApplied}</div>
+        <div className="jobLocationCard">{application.location}</div>
+        
     </div>);
   }
   return (
     <div onClick={viewAppli} className="wholeAppliCardList">
       <div className="label1">{application.company}</div>
-          <div className="label2">{application.dateApplied}</div>
-          <div className="label3">{application.jobTitle}</div>
-          <div className="label4">{application.status}</div>
-          <div className="label5">{application.salary}</div>
+      <div className="label2">{application.dateApplied}</div>
+      <div className="label3">{application.jobTitle}</div>
+      <div className="label4">{application.status}</div>
+      <div className="label5">{application.salary}</div>
     </div>
     
     );
