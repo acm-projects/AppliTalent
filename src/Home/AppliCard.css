@@ -2,7 +2,7 @@
   width: 460px;
   height: 195px;
   border-radius: 10px;
-  background-color: aliceblue;
+  background-color: #f2f2f2;
 }
 .appliComp {
   color: #152628;
@@ -15,4 +15,14 @@
 }
 .wholeAppliCard:hover {
   cursor: pointer;
+}
+.statusImg {
+  margin-top: 10px;
+  margin-right: 10px;
+  float: right;
+}
+.jobTitleAppliCard {
+  margin-left: 15px;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }

@@ -1,10 +1,16 @@
 import './AppliCard.css';
 import React from 'react';
+import acceptedPic from "./Accepted.png";
+import pendingPic from "./Pending.png";
+import negotiatingPic from "./Negotiating.png";
+import rejectedPic from "./Rejected.png";
 import { useHistory } from 'react-router-dom';
 
 
 const AppliCard = ({isGrid, application, setCurDocument}) => {
   let history = useHistory();
+  let imgUrl = `${application.status}.png`;
+  console.timeLog(imgUrl);
   const viewAppli = ()=>{
 
     setCurDocument(application.docId);
@@ -12,13 +18,22 @@ const AppliCard = ({isGrid, application, setCurDocument}) => {
     console.log(application.docId);
     history.push(`/viewCard/?document=${application.docId}`);
   };
+  const appliPic = ()=>{
+    if(application.status === "Accepted")
+      return acceptedPic;
+    else if(application.status === "Pending")
+      return pendingPic;
+    else if(application.status === "Negotiating")
+      return negotiatingPic;
+    else if(application.status === "Rejected")
+      return rejectedPic;
+  };
   if(isGrid){
     return(
     <div onClick={viewAppli} className = "wholeAppliCard">
         <div className="appliComp">{application.company}</div>
-        <div style={{
-          backgroundImage: `${application.status}.png`
-        }} className="statusPic"></div>
+        <img className="statusImg" src={appliPic()} title={application.status}></img>
+        <div className="jobTitleAppliCard">{application.jobTitle}</div>
     </div>);
   }
   return (

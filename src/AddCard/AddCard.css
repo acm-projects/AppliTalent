@@ -134,7 +134,7 @@ options {
   border-width: 2px;
   border-color: #6f6868;
   background-color: #f2f2f2;
-  font-weight: bolder;
+  font-weight: normal;
   font-size: 20px;
 }
 
@@ -173,7 +173,7 @@ options {
   border: solid;
   border-width: 2px;
   border-color: #6f6868;
-  font-weight: bolder;
+  font-weight: normal;
 }
 
 .Location {
