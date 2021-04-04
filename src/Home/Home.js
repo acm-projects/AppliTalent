@@ -52,13 +52,10 @@ const Home = ({setCurDocument, setSortState}) => {
     applications2.map((application, index) => {
             let today = new Date();
             let appliDate = new Date(application.dateApplied);
-            if(dateDiffInDays(today, appliDate) === 14)
+            if(dateDiffInDays(today, appliDate) > 14)
               notifApplications.push(application);
       });
       numNotif = notifApplications.length;
-      if(numNotif == 0){
-        dotStyleString = {display:'none'};
-      }
   };
 
   updateNotifAppli();
@@ -191,7 +188,7 @@ const Home = ({setCurDocument, setSortState}) => {
           <div className="addCardName" onClick={goToAddCard}>Add Card</div>
         </div>
         <div className="notiClick">
-          <div className="notiPic" onClick={()=>setModalOpen(true)}><div className="bellNoti"></div><div className="redDot"onClick={()=>setModalOpen(true)}>{numNotif}</div></div>
+          <div className="notiPic" onClick={()=>setModalOpen(true)}><div className="bellNoti"></div><div className="redDot" onClick={()=>setModalOpen(true)}>{notifApplications.length}</div></div>
           <div className="notiName" onClick={()=>setModalOpen(true)}>Notifications</div>
         </div>
         <div className="clickStats">
