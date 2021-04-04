@@ -26,9 +26,21 @@ const Home = ({setCurDocument, setSortState}) => {
     applications2 = [];
   let notifApplications = [];
   let whatSort  = "dateApplied";
-
+  if(!isGrid){
+    if(document.getElementsByClassName("actualCards").length != 0){
+      document.getElementsByClassName("actualCards")[0].style.display="block";
+      document.getElementsByClassName("actualCards")[0].style.marginTop="0px";
+    }
+  }
+  else{
+    if(document.getElementsByClassName("actualCards").length != 0){
+      document.getElementsByClassName("actualCards")[0].style.display="grid";
+      document.getElementsByClassName("actualCards")[0].style.marginTop="40px";
+    }
+  }
   useEffect(()=>{
     applications = JSON.parse(localStorage.getItem("localArr"));
+    
   }, []);
   function dateDiffInDays(date1, date2) {
   // Discard the time and time-zone information.
@@ -132,6 +144,13 @@ const Home = ({setCurDocument, setSortState}) => {
   };
   return (
     <div className = "wholeHome">
+      <div className="infoBar">
+          <div className="label1">Company</div>
+          <div className="label2">Date Applied</div>
+          <div className="label3">Job Title</div>
+          <div className="label4">Status</div>
+          <div className="label5">Salary</div>
+        </div>
       <div className="leftArea">
         <div className="webTitle">
           <div className="logo"></div>
@@ -178,7 +197,7 @@ const Home = ({setCurDocument, setSortState}) => {
       </div>
       
       <div className="cardsHome">
-        <div className="infoBar"></div>
+        
         <div className="actualCards">
          {(applications != null)?applications.map((application, index) => <AppliCard isGrid={isGrid} setCurDocument={setCurDocument} application={application} key={index}/>):null}
          </div>
