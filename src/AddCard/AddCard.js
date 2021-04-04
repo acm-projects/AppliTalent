@@ -13,6 +13,8 @@ const AddCard = ({setApplications}) => {
     const [status, setStatus] = useState("");
     const [jobTitle, setPosition] = useState("");
     const [jobDesc, setDescription] = useState("");
+    const [contact, setContact] = useState("");
+    const [applicationNum, setAppNum] = useState("");
     const [userId, setUserId] = useState(firebase.auth().currentUser.uid);
     const [docId, setDocId] = useState("");
     const handleCompanyNameChange = (e) => {
@@ -39,6 +41,14 @@ const AddCard = ({setApplications}) => {
       setPosition(e.target.value);
     };
 
+    const handleContactChange = (e) => {
+      setContact(e.target.value);
+    };
+    
+    const handleAppNumChange = (e) => {
+      setAppNum(e.target.value);
+    };
+    
     const handleDescriptionChange = (e) => {
       setDescription(e.target.value);
     };
@@ -52,6 +62,8 @@ const AddCard = ({setApplications}) => {
       const curCard = {
         company,
         dateApplied,
+        contact,
+        applicationNum,
         salary,
         location,
         status,
@@ -125,8 +137,8 @@ const AddCard = ({setApplications}) => {
           
           <div className = "cardAddCard">
             <div className="cardTop">
-              <label className="cardTitle">Add An Application</label>
               <div className="backToHome" onClick={goHome}></div>
+              <label className="cardTitle">Add An Application</label>
             </div>
             
             <form onSubmit={addCard}>
@@ -140,8 +152,10 @@ const AddCard = ({setApplications}) => {
                 <option value="Pending">Pending</option>
                 <option value="Negotiating">Negotiating</option>
               </select>
-              <input className="Salary" placeholder="Salary/Wage" value={salary} onChange={handleSalaryChange}></input>
               <input className="Location" placeholder="Location" value={location} onChange={handleLocationChange}></input>
+              <input className="Salary" placeholder="Salary/Wage" value={salary} onChange={handleSalaryChange}></input>
+              <input className="Contact" placeholder="Company Contact" value={contact} onChange={handleContactChange}></input>
+              <input className="AppNum" placeholder="Application Number" value={applicationNum} onChange={handleAppNumChange}></input>
               <textarea className="Description" type="text" placeholder="Description" value={jobDesc} onChange={handleDescriptionChange}></textarea>
               <button onClick={addCard} className="submitAddCard" type="button">Add Card</button>
             </form>

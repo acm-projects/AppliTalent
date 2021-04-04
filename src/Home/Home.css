@@ -1,219 +1,297 @@
-:root {
-  --firstPos: 20px;
-  --secondPos: 350px;
-  --thirdPos: 750px;
-  --fourthPos: 1650px;
-  --fifthPos: 1200px;
+.wholeHome {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+.infoBar {
+  display: none;
+  background-color: aqua;
+  width: 1540px;
+  height: 40px;
+}
+.actualCards {
+  margin-top: 40px;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 513px 513px 513px;
+  grid-template-rows: auto;
+  gap: 50px 5px;
+}
+.cardsHome {
+  width: 1540px;
+  height: 864px;
+  display: inline-block;
+  background-color: rgb(75, 106, 75, 0.3);
+  position: absolute;
+  margin-top: 111px;
+}
+.homeMadeToggle {
+  display: inline-block;
+  margin-left: 50px;
+  color: #182628;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.togglePicGrid {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-image: url("grid.png");
+  margin-top: 12px;
+  margin-left: 27px;
+}
+.togglePicList {
+  display: none;
+  width: 16px;
+  height: 16px;
+  background-image: url("list.png");
+  background-repeat: no-repeat;
+  margin-top: 15px;
+  margin-left: 27px;
+}
+.viewTag {
+  display: inline-block;
+}
+.toggleButton {
+  top: 50%;
+  transform: translate(10%, 25%);
+  display: inline-block;
+  border-radius: 10px;
+  width: 70px;
+  height: 40px;
+  background-color: #f2f2f2;
+  cursor: pointer;
 }
 
-.notifModal {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.notifTitle {
+.topOfHome {
+  width: 1540px;
+  background-color: rgb(75, 106, 75, 0.3);
   display: inline-block;
-}
-.notifExit {
-  float: right;
-  display: inline-block;
-  cursor: pointer;
-  background-image: url("./clear.png");
-  width: 50px;
-  height: 50px;
-}
-.appliIndex {
-  padding: 0;
-  margin: 0;
-  color: #6f6868;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  height: 40px;
-  width: 100%;
-}
-.label1 {
   position: absolute;
-  margin-left: var(--firstPos);
-}
-.label2 {
-  position: absolute;
-  margin-left: var(--secondPos);
-}
-.label3 {
-  margin-left: var(--thirdPos);
-  position: absolute;
-}
-.label4 {
-  margin-left: var(--fourthPos);
-  position: absolute;
-}
-.label5 {
-  margin-left: var(--fifthPos);
-  position: absolute;
-}
-.middleBar {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 40px;
-  position: relative;
-  background-color: white;
-  vertical-align: bottom;
+  height: 110px;
+  border-bottom: solid;
+  border-color: #182628;
+  border-width: 2px;
 }
 .dropDown {
+  border-radius: 10px;
+  height: 40px;
+  width: 160px;
+  background-color: #f2f2f2;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  margin-right: 0;
+  color: #182628;
+  border: none;
+  font-weight: normal;
+  outline: none;
+}
+
+.sortByDiv {
   display: inline-block;
-  vertical-align: bottom;
-  margin-left: 10px;
-  width: 200px;
-  height: 30px;
-  border-radius: 10px;
-  background-color: #dbd8d8;
+  margin-left: 42px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-
-  color: #94618e;
-  border: none;
-  font-weight: normal;
-  outline: none;
+  font-size: 24px;
 }
-
-.submitSort {
-  vertical-align: bottom;
-  margin-top: 10px;
-  margin-left: 10px;
-  padding-left: 2px;
-  padding-right: 2px;
-  height: 30px;
-  width: 50px;
-  border-radius: 10px;
-  border: none;
-  background-color: #94618e;
-  font-weight: normal;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  cursor: pointer;
-  color: white;
-  outline: none;
-}
-
 .searchBar {
-  vertical-align: bottom;
   display: inline-block;
-  margin-top: 10px;
-  margin-left: 20px;
   width: 774px;
-  height: 25px;
+  height: 40px;
+  margin-top: 30px;
+  margin-left: 22px;
+  border: none;
   border-radius: 10px;
-  background-color: #dbd8d8;
+  border-width: 1px;
+  border-color: #182628;
+  color: #182628;
+  font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-
-  color: #94618e;
-  border: solid;
-  border-width: 2px;
-  border-color: #dbd8d8;
-  font-weight: normal;
+}
+input[type="text"] {
+  background-color: #f2f2f2;
 }
 .searchBar::placeholder {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-weight: normal;
+  color: #182628;
 }
-.sortByBlock {
+.leftArea {
+  height: 100vh;
+  width: 380px;
+  display: inline-block;
+  background-color: #182628;
+}
+.webTitle {
+  height: 110px;
+  background-color: #182628;
+  width: 380px;
+  border-bottom: solid;
+  border-color: #f2f2f2;
+  border-width: 2px;
+  cursor: pointer;
+}
+.logo {
+  margin: 0;
+  margin-left: 26px;
+  margin-top: 30px;
+  display: inline-block;
+  background-image: url(./logo.png);
+  width: 70px;
+  height: 55px;
+}
+.webName {
+  font-size: 65px;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f2f2f2;
+}
+.clickAddCard {
+  height: 110px;
+  background-color: #182628;
+  width: 380px;
+}
+.addPic {
+  margin: 0;
+  margin-left: 26px;
+  margin-top: 30px;
+  display: inline-block;
+  background-image: url(./addPicWhite.png);
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+}
+.addCardName {
+  font-size: 40px;
+  font-weight: lighter;
   margin-left: 10px;
   display: inline-block;
+  top: 50%;
+  transform: translate(10%, -20%);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f2f2f2;
+  cursor: pointer;
 }
-
-.topBarHome {
-  background-color: #492741;
-  height: 75px;
+.clickViewCard {
+  height: 110px;
+  background-color: #182628;
+  width: 380px;
 }
-.logoHome {
-  background-size: cover;
-  background-image: url(./logo.png);
+.viewCardPic {
+  margin: 0;
+  margin-left: 26px;
+  margin-top: 40px;
   display: inline-block;
-  margin-top: 14px;
-  margin-left: 20px;
-  width: 50px;
-  height: 50px;
+  background-image: url(./viewCardWhite.png);
   background-repeat: no-repeat;
-  position: relative;
+  width: 50px;
+  height: 36px;
+  cursor: pointer;
+}
+.viewCardName {
+  font-size: 40px;
+  font-weight: lighter;
+  margin-left: 10px;
+  display: inline-block;
+  top: 50%;
+  transform: translate(10%, -10%);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f2f2f2;
+  cursor: pointer;
+}
+.notiClick {
+  height: 110px;
+  background-color: #182628;
+  width: 380px;
+}
+.notiPic {
+  margin: 0;
+  margin-left: 26px;
+  margin-top: 20px;
+  display: inline-block;
+  background-image: url(./notiWhite.png);
+  background-repeat: no-repeat;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  padding: 0;
 }
 .redDot {
-  text-align: center;
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #dbd8d8;
-  float: right;
-  margin-right: -40px;
-  margin-top: 35px;
   width: 20px;
   height: 20px;
+  color: #f2f2f2;
+  font-family: Arial, Helvetica, sans-serif;
   background-image: url("./redDot.png");
+  background-repeat: no-repeat;
+  margin-left: 37px;
+  margin-top: 33px;
+  font-size: 20px;
+  padding-left: 5px;
+}
+.notiName {
+  font-size: 40px;
+  font-weight: lighter;
+  margin-left: 5px;
+  display: inline-block;
+  top: 50%;
+  transform: translate(10%, -20%);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f2f2f2;
   cursor: pointer;
 }
-.notifBell {
-  background-image: url("notiBell.png");
-  display: inline-block;
-  float: right;
-  color: #fbeee7;
-  margin-right: 61px;
-  margin-top: 20px;
-  height: 45px;
-  width: 45px;
-  background-repeat: no-repeat;
-  background-size: 67%;
-  cursor: pointer;
+.clickStats {
+  height: 110px;
+  background-color: #182628;
+  width: 380px;
 }
-
-.addCard {
-  background-image: url("addCard.png");
-  display: inline-block;
-  float: right;
-  color: #fbeee7;
-  margin-right: 61px;
+.statsPic {
+  margin: 0;
+  margin-left: 26px;
   margin-top: 20px;
-  height: 45px;
-  width: 45px;
+  display: inline-block;
+  background-image: url(./statsWhite.png);
   background-repeat: no-repeat;
-  background-size: 67%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  padding: 0;
+}
+.statsName {
+  font-size: 40px;
+  font-weight: lighter;
+  margin-left: 10px;
+  display: inline-block;
+  top: 50%;
+  transform: translate(10%, -20%);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f2f2f2;
   cursor: pointer;
 }
 
 .signOut {
-  background-image: url("signOut.png");
-  display: inline-block;
-  float: right;
-  color: #fbeee7;
-  margin-right: 46px;
-  margin-top: 20px;
-  height: 45px;
-  width: 45px;
-  background-repeat: no-repeat;
-  background-size: 67%;
-  cursor: pointer;
-}
-
-.webNameDivHome {
-  margin-top: 12px;
-  margin-left: 5px;
   position: absolute;
-  display: inline-block;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 50px;
-  color: #f8eee7;
-  font-weight: bold;
+  bottom: 0;
+  height: 110px;
+  background-color: #182628;
+  width: 380px;
+  padding: 0;
 }
-.webNameHome {
-  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
-}
-
-.sortBegin {
+.signOutPic {
+  margin-left: 26px;
+  margin-top: 20px;
   display: inline-block;
-  margin-left: 50px;
+  background-image: url(./signOut.png);
+  background-repeat: no-repeat;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  padding: 0;
+}
+.signName {
+  font-size: 40px;
+  font-weight: lighter;
+  margin-left: 10px;
+  display: inline-block;
+  top: 50%;
+  transform: translate(10%, -40%);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 22px;
-  font-weight: 200;
-  color: #94619e;
+  color: #f2f2f2;
+  cursor: pointer;
 }

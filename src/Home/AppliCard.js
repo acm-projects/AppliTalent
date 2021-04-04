@@ -3,7 +3,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 
-const AppliCard = ({application, setCurDocument}) => {
+const AppliCard = ({isGrid, application, setCurDocument}) => {
   let history = useHistory();
   const viewAppli = ()=>{
 
@@ -12,14 +12,18 @@ const AppliCard = ({application, setCurDocument}) => {
     console.log(application.docId);
     history.push(`/viewCard/?document=${application.docId}`);
   };
-  return (
+  if(isGrid){
+    return(
     <div onClick={viewAppli} className = "wholeAppliCard">
-        <div className="label1">{application.company}</div>
-        <div className="label2">{application.dateApplied}</div>
-        <div className="label3">{application.jobTitle}</div>
-        <div className="label4">{application.status}</div>
-        <div className="label5">{application.salary}</div>
-    </div>
+        <div className="appliComp">{application.company}</div>
+        <div style={{
+          backgroundImage: `${application.status}.png`
+        }} className="statusPic"></div>
+    </div>);
+  }
+  return (
+  <div></div>
+    
     );
 }
   

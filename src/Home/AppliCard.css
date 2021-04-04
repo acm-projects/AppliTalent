@@ -1,22 +1,18 @@
-:root {
-  --firstPos: 20px;
-  --secondPos: 440px;
-  --thirdPos: 830px;
-  --fourthPos: 1320px;
-}
 .wholeAppliCard {
-  padding: 0;
-  margin: 0;
-  padding-top: 10px;
-  margin-bottom: 0;
-  color: #492741;
+  width: 460px;
+  height: 195px;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+.appliComp {
+  color: #152628;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  height: 30px;
-  width: 100%;
-  border-top: 1px solid #492741;
+  font-weight: normal;
+  font-size: 40px;
+  margin-left: 15px;
+  margin-top: 10px;
+  display: inline-block;
 }
 .wholeAppliCard:hover {
-  background-color: #94619e;
   cursor: pointer;
 }

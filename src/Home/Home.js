@@ -13,6 +13,7 @@ function useForceUpdate(){
 Modal.setAppElement('#root');
 const Home = ({setCurDocument, setSortState}) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [isGrid, setIsGrid] = useState(true);
   let history = useHistory();
   let numNotif = 0;
   let dotStyleString = {display:'block'};
@@ -110,77 +111,78 @@ const Home = ({setCurDocument, setSortState}) => {
     forceUpdate();
   };
   const goHome = () =>{
-      history.push("/");
+    history.push("/");
+  };
+  const toggleView = () =>{
+    if(isGrid === true){
+      setIsGrid(false);
+      document.getElementsByClassName("togglePicGrid")[0].style.display = "none";
+      document.getElementsByClassName("togglePicList")[0].style.display = "block";
+      document.getElementsByClassName("infoBar")[0].style.display="block";
+    }
+    else{
+      setIsGrid(true);
+      document.getElementsByClassName("togglePicGrid")[0].style.display = "block";
+      document.getElementsByClassName("togglePicList")[0].style.display = "none";
+      document.getElementsByClassName("infoBar")[0].style.display="none";
+    }
   };
   return (
     <div className = "wholeHome">
-      <div className="notifModal">
-        <Modal
-        isOpen={modalOpen} 
-        onRequestClose={()=>setModalOpen(false)}
-        style={
-          {
-            overlay:{
-              backgroundColor:'rgba(255,255,255,0.5)',
-              
-            },
-            content:{
-              borderRadius:"10px",
-              width:"50%",
-              margin:"auto",
-              color: '#94618E',
-              display: 'inline-block',
-              fontFamily:"Arial, Helvetica, sans-serif",
-            }
-          }
-        }>
-          <div className="notifTopBar">
-            <h2 className="notifTitle">Applied 2 Weeks Ago</h2>
-            <div className="notifExit" onClick={()=> setModalOpen(false)}></div>
-          </div>
-          {applications.map((application, index) => {
-            let today = new Date();
-            let appliDate = new Date(application.dateApplied);
-            if(dateDiffInDays(today, appliDate) === 14)
-              return <NotifCard setCurDocument={setCurDocument} application={application} key={index}/>
-          })}
-        </Modal>
-      </div>
-      <div className="topBarHome">
-        <div onClick={goHome} className="logoHome"></div>
-        <div className="webNameDivHome">
-            <label className="webNameHome">GoHire</label>
+      <div className="leftArea">
+        <div className="webTitle">
+          <div className="logo"></div>
+          <div className="webName">GoHire</div>
         </div>
-        <div className="signOut" onClick={logout} ></div>
-        <div className="addCard" onClick={goToAddCard}></div>
-        <div className="notifBell" onClick={()=>setModalOpen(true)}></div>
-        <div className="redDot" style={dotStyleString} onClick={()=>setModalOpen(true)}>{numNotif}</div>
+        <div className="clickAddCard">
+          <div className="addPic" onClick={goToAddCard}></div>
+          <div className="addCardName" onClick={goToAddCard}>Add Card</div>
+        </div>
+        <div className="clickViewCard">
+          <div className="viewCardPic"></div>
+          <div className="viewCardName">View Card</div>
+        </div>
+        <div className="notiClick">
+          <div className="notiPic"><div className="bellNoti"></div><div className="redDot">{numNotif}</div></div>
+          <div className="notiName">Notifications</div>
+        </div>
+        <div className="clickStats">
+          <div className="statsPic"></div>
+          <div className="statsName">Statistics</div>
+        </div>
+        <div className="signOut">
+          <div className="signOutPic" onClick={logout}></div>
+          <div className="signName" onClick={logout}>Sign Out</div>
+        </div>
       </div>
-      <div className="middleBar">
-        <input className="searchBar" placeholder="Search" onKeyUp={filterFunction}></input>
-        <div className="sortByBlock">
-          <div className = "sortBegin">
-          <label className="sortLabel">Sort By:</label>
-          </div>
-          
+
+      <div className="topOfHome">
+        <input className="searchBar" type="text" onKeyUp={filterFunction} placeholder="Search"></input>
+        <div className="sortByDiv">
+          Sort By:
           <select onChange={sortCards} className="dropDown">
             <option>Select</option>
             <option value="dateApplied">Most Recent</option>
             <option value="company">Company</option>
             <option value="salary">Salary</option>
           </select>
-          
+        </div>
+        <div className="homeMadeToggle">
+          <div className="viewTag">View:</div>
+          <div className="toggleButton" onClick={toggleView}>
+            <div className="togglePicGrid">
+            </div>
+            <div className="togglePicList">
+            </div>
+          </div>
         </div>
       </div>
-      <div className="appliIndex">
-        <p className="label5">Salary</p>
-        <p className="label1">Company</p>
-        <p className="label2">Date Applied</p>
-        <p className="label3">Position</p>
-        <p className="label4">Status</p>
-      </div>
-      <div className="applications">
-        {(applications != null)?applications.map((application, index) => <AppliCard setCurDocument={setCurDocument} application={application} key={index}/>):null}
+      
+      <div className="cardsHome">
+        <div className="infoBar"></div>
+        <div className="actualCards">
+         {(applications != null)?applications.map((application, index) => <AppliCard isGrid={isGrid} setCurDocument={setCurDocument} application={application} key={index}/>):null}
+         </div>
       </div>
     </div>
     
