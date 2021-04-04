@@ -14,6 +14,7 @@ Modal.setAppElement('#root');
 const Home = ({setCurDocument, setSortState}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [isGrid, setIsGrid] = useState(true);
+    
   let history = useHistory();
   let numNotif = 0;
   let dotStyleString = {display:'block'};
@@ -52,7 +53,7 @@ const Home = ({setCurDocument, setSortState}) => {
     applications2.map((application, index) => {
             let today = new Date();
             let appliDate = new Date(application.dateApplied);
-            if(dateDiffInDays(today, appliDate) > 14)
+            if(dateDiffInDays(today, appliDate) > 14 && dateDiffInDays(today, appliDate) < 21)
               notifApplications.push(application);
       });
       numNotif = notifApplications.length;
@@ -62,7 +63,7 @@ const Home = ({setCurDocument, setSortState}) => {
 
   const sortCards = () => {
     whatSort = document.getElementsByClassName("dropDown")[0].value;
-    setSortState(whatSort);
+    //setSortState(whatSort);
     console.log(whatSort);
     if(whatSort === "company"){
       const sorted = [...applications].sort((a, b) => {
@@ -167,7 +168,7 @@ const Home = ({setCurDocument, setSortState}) => {
           {applications.map((application, index) => {
             let today = new Date();
             let appliDate = new Date(application.dateApplied);
-            if(dateDiffInDays(today, appliDate) > 14)
+            if(dateDiffInDays(today, appliDate) > 14 && dateDiffInDays(today, appliDate) < 21)
               return <NotifCard setCurDocument={setCurDocument} application={application} key={index}/>
           })}
         </Modal>
