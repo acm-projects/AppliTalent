@@ -202,10 +202,22 @@ input[type="text"] {
   color: #f2f2f2;
   cursor: pointer;
 }
+.notifTitle {
+  color: #182628;
+  display: inline-block;
+}
 .notiClick {
   height: 110px;
   background-color: #182628;
   width: 380px;
+}
+.notifExit {
+  float: right;
+  display: inline-block;
+  cursor: pointer;
+  background-image: url("./clear.png");
+  width: 50px;
+  height: 50px;
 }
 .notiPic {
   margin: 0;
@@ -218,6 +230,11 @@ input[type="text"] {
   height: 55px;
   cursor: pointer;
   padding: 0;
+}
+.notifTopBar {
+  border-bottom: solid;
+  border-color: #182628;
+  border-width: 2px;
 }
 .redDot {
   width: 20px;

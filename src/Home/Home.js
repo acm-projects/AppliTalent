@@ -144,6 +144,36 @@ const Home = ({setCurDocument, setSortState}) => {
   };
   return (
     <div className = "wholeHome">
+        <Modal
+        isOpen={modalOpen} 
+        onRequestClose={()=>setModalOpen(false)}
+        style={
+          {
+            overlay:{
+              backgroundColor:'rgba(255,255,255,0.5)',
+              
+            },
+            content:{
+              borderRadius:"10px",
+              width:"50%",
+              margin:"auto",
+              color: '#94618E',
+              display: 'inline-block',
+              fontFamily:"Arial, Helvetica, sans-serif",
+            }
+          }
+        }>
+          <div className="notifTopBar">
+            <h2 className="notifTitle">Applied 2 Weeks Ago</h2>
+            <div className="notifExit" onClick={()=> setModalOpen(false)}></div>
+          </div>
+          {applications.map((application, index) => {
+            let today = new Date();
+            let appliDate = new Date(application.dateApplied);
+            if(dateDiffInDays(today, appliDate) > 14)
+              return <NotifCard setCurDocument={setCurDocument} application={application} key={index}/>
+          })}
+        </Modal>
       <div className="infoBar">
           <div className="label1">Company</div>
           <div className="label2">Date Applied</div>
@@ -161,8 +191,8 @@ const Home = ({setCurDocument, setSortState}) => {
           <div className="addCardName" onClick={goToAddCard}>Add Card</div>
         </div>
         <div className="notiClick">
-          <div className="notiPic"><div className="bellNoti"></div><div className="redDot">{numNotif}</div></div>
-          <div className="notiName">Notifications</div>
+          <div className="notiPic" onClick={()=>setModalOpen(true)}><div className="bellNoti"></div><div className="redDot"onClick={()=>setModalOpen(true)}>{numNotif}</div></div>
+          <div className="notiName" onClick={()=>setModalOpen(true)}>Notifications</div>
         </div>
         <div className="clickStats">
           <div className="statsPic" onClick={goToStats}></div>
