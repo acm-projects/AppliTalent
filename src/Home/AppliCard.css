@@ -16,7 +16,12 @@
   height: 30px;
   width: 100%;
   border-top: 1px solid #152628;
+  cursor: pointer;
 }
+.wholeAppliCardList:hover {
+  background-color: #f2f2f2;
+}
+
 .label1 {
   position: absolute;
   margin-left: var(--firstPos);
@@ -70,13 +75,13 @@
   margin-left: 15px;
 }
 .jobLocationCard {
-  display: inline-block;
-  position: absolute;
+  float: right;
+  margin-right: 10px;
   color: #152628;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: normal;
   font-size: 17px;
-  margin-left: 380px;
+
   margin-top: -20px;
 }
 .wholeAppliCard:hover {

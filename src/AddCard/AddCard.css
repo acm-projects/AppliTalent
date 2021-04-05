@@ -175,6 +175,14 @@ options {
   border-color: #6f6868;
   font-weight: normal;
 }
+input::placeholder {
+  color: #6f6868;
+  font-size: 20px;
+}
+textarea::placeholder {
+  color: #6f6868;
+  font-size: 20px;
+}
 
 .Location {
   vertical-align: bottom;
@@ -269,13 +277,4 @@ options {
   font-weight: normal;
   border: solid;
   outline: none;
-}
-.Description:focus {
-  border: solid;
-}
-input {
-  outline: none;
-  background-color: white;
-  height: 25px;
-  width: 300px;
 }
