@@ -55,13 +55,15 @@ const ViewCard = () => {
   };
   const updateCard = () =>{
     let editedAppli = {
-      company:document.getElementsByClassName("viewCompany")[0].value,
-      dateApplied:document.getElementsByClassName("viewDateApplied")[0].value,
-      salary:document.getElementsByClassName("viewSalary")[0].value,
-      location:document.getElementsByClassName("viewLocation")[0].value,
-      status:document.getElementsByClassName("viewStatus")[0].value,
-      jobTitle:document.getElementsByClassName("viewJobTitle")[0].value,
-      jobDesc:document.getElementsByClassName("viewJobDesc")[0].value,
+      company:document.getElementsByClassName("cmpName")[0].value,
+      dateApplied:document.getElementsByClassName("Date")[0].value,
+      salary:document.getElementsByClassName("Salary")[0].value,
+      location:document.getElementsByClassName("Location")[0].value,
+      status:document.getElementsByClassName("Status")[0].value,
+      jobTitle:document.getElementsByClassName("Position")[0].value,
+      jobDesc:document.getElementsByClassName("Description")[0].value,
+      contact:document.getElementsByClassName("Contact")[0].value,
+      applicationNum:document.getElementsByClassName("AppNum")[0].value,
       userId: application.userId,
       docId:application.docId
     };
@@ -73,55 +75,43 @@ const ViewCard = () => {
     }
     localStorage.setItem("localArr", JSON.stringify(applications));
     localStorage.setItem("backUp", JSON.stringify(applications));
-    document.getElementsByClassName("confirmChange")[0].style.display="none";
-    submitSymbol();
-  };
-  const submitSymbol = ()=>{
-    document.getElementsByClassName('submitted')[0].style.opacity = 1;
-  };
-  const editMode = ()=>{
-    document.getElementsByClassName("confirmChange")[0].style.display="inline-block";
-  };
-  const discardChange = ()=>{
-
-  };
-  const logout = () =>{
-
-    let emptyArr = [];
-    localStorage.setItem("localArr", JSON.stringify(emptyArr));
-    localStorage.setItem("backUp", JSON.stringify(emptyArr));
-    firebase.auth().signOut();
-    history.push("/");
+    goHome();
   };
   return (
-    <div className = "wholeHome">
-      <div className="submitted">updated</div>
-      <div className="backToHomeView" onClick={goHome}></div>
-      <div className="deleteCardView" onClick={deleteCard}></div>
-      <div className="updateCardView" onClick={editMode}></div>
-      <div className="topBarHome">
-        <div className="logoHome"></div>
-        <div className="webNameDivHome">
-            <label className="webNameHome">GoHire</label>
+      <div style = {{backgroundColor:"rgb(75, 106, 75, 0.3)", width:"100vw", height:"100vh"}} className = "wholeCardPage2">
+        <div className="topBarCard2">
+          <div className="logo2"></div>
+          <div className="siteNameDiv" onClick={goHome}>
+            <label className="webNameCard" onClick={goHome}>GoHire</label>
+          </div>
         </div>
-        <div className="signOut" onClick={logout} ></div>
-        <div className="addCard" onClick={goToAddCard}></div>
+        
+        <div className = "cardAddCard">
+          <div className="cardTop">
+            <div className="backToHome" onClick={goHome}></div>
+            <label className="cardTitle">View Application</label>
+          </div>
+          
+          <form>
+            <input className="cmpName" placeholder="Company Name" defaultValue={application.company}></input>
+            <input type="date" className="Date" defaultValue={application.dateApplied}></input>
+            <input className="Position" placeholder="Position" defaultValue={application.jobTitle}></input>
+            <select className="Status" placeholder="Status" defaultValue={application.status}>
+              <option value="Status">Status</option>
+              <option value="Accepted">Accepted</option>
+              <option value="Rejected">Rejected</option>
+              <option value="Pending">Pending</option>
+              <option value="Negotiating">Negotiating</option>
+            </select>
+            <input className="Location" placeholder="Location" defaultValue={application.location}></input>
+            <input className="Salary" placeholder="Salary/Wage" defaultValue={application.salary}></input>
+            <input className="Contact" placeholder="Company Contact" defaultValue={application.contact}></input>
+            <input className="AppNum" placeholder="Application Number" defaultValue={application.applicationNum}></input>
+            <textarea className="Description" type="text" placeholder="Description" defaultValue={application.jobDesc}></textarea>
+            <button onClick={updateCard} className="submitAddCard" type="button">Edit</button>
+          </form>
+        </div>
       </div>
-      <div className="underTopBar">
-        <input type="text" className="viewCompany" defaultValue={application.company}></input>
-        <input type="text" className="viewJobTitle" defaultValue={application.jobTitle}></input>
-        <input type="text" className="viewLocation" defaultValue={application.location}></input> 
-        <input type="text" className="viewDateApplied" defaultValue={application.dateApplied}></input>
-        <input type="text" className="viewSalary" defaultValue={`${application.salary}`}></input>       
-        <input type="text" className="viewStatus" defaultValue={application.status}></input>
-        <p className="jobDescLabel">Job Description:</p>
-        <textarea type="text" className="viewJobDesc" defaultValue={application.jobDesc}></textarea>
-        <button type="button" className="confirmChange" onClick={updateCard}>Edit</button>
-        <button type="button" className="discardChange" onClick={discardChange}>Edit</button>
-      </div>
-      
-    </div>
-    
   );
   }
   
