@@ -175,6 +175,9 @@ options {
   border-color: #6f6868;
   font-weight: normal;
 }
+.Status:focus {
+  background-color: white;
+}
 input::placeholder {
   color: #6f6868;
   font-size: 20px;
@@ -182,6 +185,9 @@ input::placeholder {
 textarea::placeholder {
   color: #6f6868;
   font-size: 20px;
+}
+textarea:focus {
+  background-color: white;
 }
 
 .Location {
