@@ -159,11 +159,11 @@ const Login = ({setApplications}) => {
     <div className="loginWhole">
         <div className="topBar">
           <div className="logoPhoto"></div>
-          <div className="webNameDiv">
-            <label className="webName">GoHire</label>
+          <div className="webNameDiv2">
+            <label className="webName2">GoHire</label>
           </div>
           <div className="catchPhraseDiv">
-            <label className="catchPhrase">"We the People of the United States, in Order to form </label>
+            <label className="catchPhrase">Tracking applications should be simple</label>
           </div>
           <button onClick={flipLogin} className="signUpButton">Sign up</button>
         </div>

@@ -27,13 +27,12 @@
   width: 170px;
   background-repeat: no-repeat;
   background-size: 95%;
-  cursor: pointer;
 }
 
 .catchPhraseDiv {
   position: absolute;
   top: 480px;
-  margin-left: -205px;
+  margin-left: -165px;
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
 
@@ -44,7 +43,7 @@
   /*text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);*/
   font-size: 200%;
 }
-.webNameDiv {
+.webNameDiv2 {
   position: absolute;
   top: 340px;
   margin-left: -15px;
@@ -53,7 +52,10 @@
   font-size: 130px;
   color: #96c096;
   font-weight: bold;
-  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+.webName2 {
+  margin-left: 10px;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
 }
 
 .loginBlock {
@@ -61,8 +63,8 @@
   margin: auto;
   margin-top: -350px;
   margin-right: 150px;
-  width: 600px;
-  height: 690px;
+  width: 649px;
+  height: 720px;
   border-radius: 15px;
   background-color: #f2f2f2;
   text-align: center;
@@ -75,68 +77,74 @@
   position: absolute;
 }
 .loginBlockFront {
+  margin: 0;
+  height: 100%;
+  width: 100%;
   transition: opacity 0.5s linear;
   pointer-events: auto;
+  text-align: center;
 }
 .loginBlockBack {
+  margin: 0;
+  height: 100%;
+  width: 100%;
   transition: opacity 0.5s linear;
   pointer-events: none;
+  text-align: center;
 }
 .loginBlockBack {
   transform: rotateY(180deg);
 }
 .loginTitle {
   display: inline-block;
-  position: fixed;
-  margin-top: 100px;
-  margin-left: 100px;
-
+  margin-top: 117px;
   font-size: 50px;
   color: #9cc39c;
 }
 
 .text1 {
-  position: fixed;
-  margin-top: 200px;
-  margin-left: -30px;
+  margin-top: 60px;
   border-color: #9c9c9c;
   border-style: solid;
   border-width: 1px;
-  width: 420px;
-  height: 60px;
+  width: 500px;
+  height: 80px;
   background-color: #f2f2f2;
-  border-radius: 20px;
+  border-radius: 25px;
   font-weight: normal;
-  font-size: 25px;
-
-  color: #000000;
+  font-size: 30px;
+  color: #9cc39c;
+}
+.text1::placeholder {
+  font-size: 30px;
+  color: #c2c2c2;
+  font-weight: lighter;
 }
 .text2 {
-  position: fixed;
-  margin-top: 300px;
-  margin-left: -30px;
-  width: 420px;
-  height: 60px;
-  background-color: #f2f2f2;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 25px;
+  margin-top: 60px;
   border-color: #9c9c9c;
   border-style: solid;
-  font-weight: normal;
   border-width: 1px;
+  width: 500px;
+  height: 80px;
+  background-color: #f2f2f2;
+  border-radius: 25px;
+  font-weight: normal;
+  font-size: 30px;
+  color: #9cc39c;
 }
-
+.text2::placeholder {
+  font-size: 30px;
+  color: #c2c2c2;
+  font-weight: lighter;
+}
 .signInButton {
-  position: fixed;
-  margin-top: 400px;
-  margin-left: 70px;
-  margin-bottom: 0px;
+  margin-top: 30px;
   font-weight: bold;
   font-size: 35px;
   color: #f2f2f2;
-  border-radius: 10px;
-  height: 65px;
+  border-radius: 25px;
+  height: 90px;
   width: 200px;
   border-right: 30px;
   background-color: #9cc39c;
@@ -146,10 +154,7 @@
 
 .signUpTitle {
   display: inline-block;
-  position: fixed;
-  margin-top: 100px;
-  margin-left: -170px;
-
+  margin-top: 117px;
   font-size: 50px;
   color: #9cc39c;
 }
@@ -157,70 +162,74 @@
   margin-top: 0;
   margin-bottom: 0;
   opacity: 0;
-  color: red;
+  color: #9cc39c;
 }
 .pswdInvalid {
   margin-top: 0;
   opacity: 0;
-  color: red;
+  color: #9cc39c;
 }
 .emailInvalid2 {
   margin-top: 0;
   margin-bottom: 0;
   opacity: 0;
-  color: red;
+  color: #9cc39c;
 }
 .pswdInvalid2 {
   margin-top: 0;
   opacity: 0;
-  color: red;
+  color: #9cc39c;
+}
+.emailEnter {
+  margin-top: 60px;
+  border-color: #9c9c9c;
+  border-style: solid;
+  border-width: 1px;
+  width: 500px;
+  height: 80px;
+  background-color: #f2f2f2;
+  border-radius: 25px;
+  font-weight: normal;
+  font-size: 30px;
+  color: #9cc39c;
+}
+.emailEnter::placeholder {
+  font-size: 30px;
+  color: #c2c2c2;
+  font-weight: lighter;
+}
+.pswdEnter {
+  margin-top: 60px;
+  border-color: #9c9c9c;
+  border-style: solid;
+  border-width: 1px;
+  width: 500px;
+  height: 80px;
+  background-color: #f2f2f2;
+  border-radius: 25px;
+  font-weight: normal;
+  font-size: 30px;
+  color: #9cc39c;
+}
+.pswdEnter::placeholder {
+  font-size: 30px;
+  color: #c2c2c2;
+  font-weight: lighter;
 }
 
-.emailEnter {
-  margin-top: 200px;
-  margin-left: -300px;
-  position: fixed;
-  border-style: solid;
-  border-width: 1px;
-  border-color: 9c9c9c;
-  width: 456px;
-  height: 60px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 25px;
-  color: #000000;
-}
 .usrnmEnter {
-  margin-top: 300px;
-  margin-left: -300px;
-  position: fixed;
   border-style: solid;
   border-width: 1px;
-  border-color: 9c9c9c;
+  border-color: #9c9c9c;
   width: 456px;
   height: 60px;
   background-color: #dbd8d8;
   border-radius: 5px;
   font-weight: bold;
   font-size: 25px;
-  color: #000000;
+  color: #9cc39c;
 }
-.pswdEnter {
-  margin-top: 300px;
-  margin-left: -300px;
-  position: fixed;
-  margin-bottom: 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: 9c9c9c;
-  width: 456px;
-  height: 60px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 25px;
-}
+
 .confirmPswdEnter {
   margin-top: 20px;
   margin-bottom: 0;
@@ -234,32 +243,29 @@
   color: #9cc39c;
 }
 .createAccountButton {
-  position: fixed;
-  margin-top: 400px;
-  margin-left: -185px;
-
+  margin-top: 30px;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 35px;
   color: #f2f2f2;
-  border-radius: 10px;
-  height: 65px;
-  width: 200px;
+  border-radius: 25px;
+  height: 90px;
+  width: 300px;
   border-right: 30px;
   background-color: #9cc39c;
   border: none;
+  /*box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);*/
 }
 input:focus {
   outline: none;
   background-color: white;
 }
 .forgotUserPass {
-  position: fixed;
-  margin-top: 500px;
-  margin-left: 160px;
+  margin-top: 50px;
   font-weight: normal;
   color: #8d8d8d;
   display: block;
   font-weight: bold;
+
   cursor: pointer;
 }
 .signUpButton {
@@ -270,15 +276,16 @@ input:focus {
   color: #f2f2f2;
   margin-right: 150px;
   margin-top: 40px;
-  border-radius: 10px;
-  height: 65px;
-  width: 150px;
+  border-radius: 20px;
+  height: 90px;
+  width: 200px;
   background-color: #9cc39c;
   border: none;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  outline: none;
 }
 .signInButton:active {
-  background-color: #000000;
+  background-color: #c0dbc0;
 }
 .signUpButton:active {
   background-color: #9cc39c;
