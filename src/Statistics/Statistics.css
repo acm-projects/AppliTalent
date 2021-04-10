@@ -1,0 +1,44 @@
+.wholeStatsPage {
+  width: 100vw;
+  height: 100vh;
+  background-color: #182628;
+}
+
+.cardAddCard2 {
+  height: 775px;
+  width: 1365px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 5);
+  text-align: center;
+}
+.backToHome2 {
+  position: absolute;
+  margin-top: 25px;
+  margin-left: 25px;
+  background-image: url("./newBack.png");
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-size: 67%;
+  cursor: pointer;
+}
+.cardTitle2 {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  color: #9cc39c;
+  text-align: center;
+}
+.graphContainer {
+  margin: auto;
+  margin-top: 50px;
+  width: 1000px;
+  height: 600px;
+  background-color: aqua;
+}

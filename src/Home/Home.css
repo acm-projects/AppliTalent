@@ -145,6 +145,7 @@ input[type="text"] {
 }
 .webName {
   font-size: 65px;
+  margin-left: 10px;
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
   color: #f2f2f2;
@@ -160,12 +161,13 @@ input[type="text"] {
   margin-top: 30px;
   display: inline-block;
   background-image: url(./addPicWhite.png);
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  background-size: 100% 100%;
+  height: 40px;
   cursor: pointer;
 }
 .addCardName {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: lighter;
   margin-left: 10px;
   display: inline-block;
@@ -187,12 +189,13 @@ input[type="text"] {
   display: inline-block;
   background-image: url(./viewCardWhite.png);
   background-repeat: no-repeat;
-  width: 50px;
-  height: 36px;
+  width: 40px;
+  background-size: 100% 100%;
+  height: 40px;
   cursor: pointer;
 }
 .viewCardName {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: lighter;
   margin-left: 10px;
   display: inline-block;
@@ -226,8 +229,9 @@ input[type="text"] {
   display: inline-block;
   background-image: url(./notiWhite.png);
   background-repeat: no-repeat;
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  background-size: 100% 100%;
+  height: 40px;
   cursor: pointer;
   padding: 0;
 }
@@ -249,7 +253,7 @@ input[type="text"] {
   padding-left: 5px;
 }
 .notiName {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: lighter;
   margin-left: 5px;
   display: inline-block;
@@ -271,8 +275,9 @@ input[type="text"] {
   display: inline-block;
   background-image: url(./statsWhite.png);
   background-repeat: no-repeat;
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  background-size: 100% 100%;
+  height: 40px;
   cursor: pointer;
   padding: 0;
 }

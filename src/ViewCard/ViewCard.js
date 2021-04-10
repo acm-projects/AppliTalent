@@ -89,7 +89,7 @@ const ViewCard = () => {
         <div className = "cardAddCard">
           <div className="cardTop">
             <div className="backToHome" onClick={goHome}></div>
-            <label className="cardTitle">View Application</label>
+            <label className="cardTitle">Edit Application</label>
           </div>
           
           <form>

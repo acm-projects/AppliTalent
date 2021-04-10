@@ -177,7 +177,7 @@ const Login = ({setApplications}) => {
               <p className="pswdInvalid">Wrong password</p>
               <button className = "signInButton" type="submit">Sign in</button>
             </form>
-            <a className="forgotUserPass" onClick="goToForgot">Forgot Username/Password?</a>
+            <a className="forgotUserPass" onClick={goToForgot}>Forgot Username/Password?</a>
           </figure>
           <figure className="loginBlockBack" onSubmit={handleSignUp}>
             <label className="signUpTitle">Sign up</label>
