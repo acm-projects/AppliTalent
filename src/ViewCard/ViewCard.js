@@ -55,15 +55,15 @@ const ViewCard = () => {
   };
   const updateCard = () =>{
     let editedAppli = {
-      company:document.getElementsByClassName("cmpName")[0].value,
-      dateApplied:document.getElementsByClassName("Date")[0].value,
-      salary:document.getElementsByClassName("Salary")[0].value,
-      location:document.getElementsByClassName("Location")[0].value,
-      status:document.getElementsByClassName("Status")[0].value,
-      jobTitle:document.getElementsByClassName("Position")[0].value,
-      jobDesc:document.getElementsByClassName("Description")[0].value,
-      contact:document.getElementsByClassName("Contact")[0].value,
-      applicationNum:document.getElementsByClassName("AppNum")[0].value,
+      company:document.getElementsByClassName("cmpName3")[0].value,
+      dateApplied:document.getElementsByClassName("Date3")[0].value,
+      salary:document.getElementsByClassName("Salary3")[0].value,
+      location:document.getElementsByClassName("Location3")[0].value,
+      status:document.getElementsByClassName("Status3")[0].value,
+      jobTitle:document.getElementsByClassName("Position3")[0].value,
+      jobDesc:document.getElementsByClassName("Description3")[0].value,
+      contact:document.getElementsByClassName("Contact3")[0].value,
+      applicationNum:document.getElementsByClassName("AppNum3")[0].value,
       userId: application.userId,
       docId:application.docId
     };
@@ -78,7 +78,7 @@ const ViewCard = () => {
     goHome();
   };
   return (
-      <div style = {{backgroundColor:"rgb(75, 106, 75, 0.3)", width:"100vw", height:"100vh"}} className = "wholeCardPage3">
+      <div style = {{backgroundColor:"rgb(75, 106, 75, 0.7)", width:"100vw", height:"100vh"}} className = "wholeCardPage3">
         <div className="topBarCard3">
           <div className="logo23"></div>
           <div className="siteNameDiv3" onClick={goHome}>

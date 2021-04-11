@@ -165,7 +165,7 @@ const Login = ({setApplications}) => {
           <div className="catchPhraseDiv">
             <label className="catchPhrase">Make Your First Step Simple</label>
             <p className="blurb">A tool designed for college students to track all your applictions,</p>
-            <p className="blurb"> making the stressful process quick and straightforward</p>
+            <p className="blurb"> making the stressful process quick and straightforward.</p>
           </div>
           <button onClick={flipLogin} className="signUpButton">Sign up</button>
         </div>

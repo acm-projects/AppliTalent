@@ -118,6 +118,7 @@ input[type="text"] {
 }
 .searchBar::placeholder {
   color: #182628;
+  font-size: 25px;
 }
 .leftArea {
   height: 100vh;
