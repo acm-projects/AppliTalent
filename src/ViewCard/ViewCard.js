@@ -78,37 +78,37 @@ const ViewCard = () => {
     goHome();
   };
   return (
-      <div style = {{backgroundColor:"rgb(75, 106, 75, 0.3)", width:"100vw", height:"100vh"}} className = "wholeCardPage2">
-        <div className="topBarCard2">
-          <div className="logo2"></div>
-          <div className="siteNameDiv" onClick={goHome}>
-            <label className="webNameCard" onClick={goHome}>GoHire</label>
+      <div style = {{backgroundColor:"rgb(75, 106, 75, 0.3)", width:"100vw", height:"100vh"}} className = "wholeCardPage3">
+        <div className="topBarCard3">
+          <div className="logo23"></div>
+          <div className="siteNameDiv3" onClick={goHome}>
+            <label className="webNameCard3" onClick={goHome}>GoHire</label>
           </div>
         </div>
         
-        <div className = "cardAddCard">
-          <div className="cardTop">
-            <div className="backToHome" onClick={goHome}></div>
-            <label className="cardTitle">Edit Application</label>
+        <div className = "cardAddCard3">
+          <div className="cardTop3">
+            <div className="backToHome3" onClick={goHome}></div>
+            <label className="cardTitle3">Edit Application</label>
           </div>
-          
+          <div className="deleteCard3" onClick={deleteCard}></div>
           <form>
-            <input className="cmpName" placeholder="Company Name" defaultValue={application.company}></input>
-            <input type="date" className="Date" defaultValue={application.dateApplied}></input>
-            <input className="Position" placeholder="Position" defaultValue={application.jobTitle}></input>
-            <select className="Status" placeholder="Status" defaultValue={application.status}>
+            <input className="cmpName3" placeholder="Company Name" defaultValue={application.company}></input>
+            <input type="date" className="Date3" defaultValue={application.dateApplied}></input>
+            <input className="Position3" placeholder="Position" defaultValue={application.jobTitle}></input>
+            <select className="Status3" placeholder="Status" defaultValue={application.status}>
               <option value="Status">Status</option>
               <option value="Accepted">Accepted</option>
               <option value="Rejected">Rejected</option>
               <option value="Pending">Pending</option>
               <option value="Negotiating">Negotiating</option>
             </select>
-            <input className="Location" placeholder="Location" defaultValue={application.location}></input>
-            <input className="Salary" placeholder="Salary/Wage" defaultValue={application.salary}></input>
-            <input className="Contact" placeholder="Company Contact" defaultValue={application.contact}></input>
-            <input className="AppNum" placeholder="Application Number" defaultValue={application.applicationNum}></input>
-            <textarea className="Description" type="text" placeholder="Description" defaultValue={application.jobDesc}></textarea>
-            <button onClick={updateCard} className="submitAddCard" type="button">Edit</button>
+            <input className="Location3" placeholder="Location" defaultValue={application.location}></input>
+            <input className="Salary3" placeholder="Salary/Wage" defaultValue={application.salary}></input>
+            <input className="Contact3" placeholder="Company Contact" defaultValue={application.contact}></input>
+            <input className="AppNum3" placeholder="Application Number" defaultValue={application.applicationNum}></input>
+            <textarea className="Description3" type="text" placeholder="Description" defaultValue={application.jobDesc}></textarea>
+            <button onClick={updateCard} className="submitAddCard3" type="button">Save</button>
           </form>
         </div>
       </div>

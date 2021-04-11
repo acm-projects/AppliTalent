@@ -66,25 +66,25 @@
   height: 100px;
   margin-top: 25px;
   margin-bottom: 50px;
-  background-color: #3f681c;
+  background-color: #7dc37d;
 }
 .rBar {
   width: 100px;
   height: 100px;
   margin-bottom: 50px;
-  background-color: #fb6542;
+  background-color: #bf3535;
 }
 .pBar {
   width: 100px;
   height: 100px;
   margin-bottom: 50px;
-  background-color: #ffbb00;
+  background-color: #9c9c9c;
 }
 .nBar {
   width: 100px;
   height: 100px;
   margin-bottom: 50px;
-  background-color: #375e97;
+  background-color: #4b86b4;
 }
 
 .aLabel {

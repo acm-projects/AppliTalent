@@ -87,21 +87,22 @@ const Statistics = () => {
           <div className = "cardAddCard2">
             <div className="cardTop2">
               <div className="backToHome2" onClick={goHome}></div>
-              <label className="cardTitle2">App Statistics</label>
+              <label className="cardTitle2">Your Application Statistics</label>
             </div>
             <div className="graphContainer">
               <div className="graphLabels">
                 <div className="aLabel">Accepted</div>
                 <div className="rLabel">Rejected</div>
-                <div className="pLabel">Pending</div>
-                <div className="nLabel">Negotiating</div>
+                <div className="pLabel">Negotiating</div>
+                <div className="nLabel">Pending</div>
               </div>
               
               <div className= "actualGraph">
-                <div className="aBar"><div style={{float:"right" , marginTop:"40px",fontSize:"20px", marginRight:"-15px", fontFamily:"Arial"}}>{numAccepted}</div></div>
-                <div className="rBar"><div style={{float:"right" , marginTop:"40px",fontSize:"20px", marginRight:"-15px", fontFamily:"Arial"}}>{numRejected}</div></div>
-                <div className="pBar"><div style={{float:"right" , marginTop:"40px",fontSize:"20px", marginRight:"-15px", fontFamily:"Arial"}}>{numPending}</div></div>
-                <div className="nBar"><div style={{float:"right" , marginTop:"40px",fontSize:"20px", marginRight:"-15px", fontFamily:"Arial"}}>{numNegotiating}</div></div>
+                <div className="aBar"><div style={{float:"right" , marginTop:"40px",fontSize:"20px", marginRight:"-25px", fontFamily:"Arial"}}>{numAccepted}</div></div>
+                <div className="rBar"><div style={{float:"right" , marginTop:"40px",fontSize:"20px", marginRight:"-25px", fontFamily:"Arial"}}>{numRejected}</div></div>
+                <div className="nBar"><div style={{float:"right" , marginTop:"40px",fontSize:"20px", marginRight:"-25px", fontFamily:"Arial"}}>{numNegotiating}</div></div>
+                <div className="pBar"><div style={{float:"right" , marginTop:"40px",fontSize:"20px", marginRight:"-25px", fontFamily:"Arial"}}>{numPending}</div></div>
+                
               </div>
             </div>
           </div>

@@ -42,17 +42,17 @@
   display: block;
   width: 16px;
   height: 16px;
-  background-image: url("grid.png");
-  margin-top: 12px;
+  background-image: url("list.png");
+  background-repeat: no-repeat;
+  margin-top: 15px;
   margin-left: 27px;
 }
 .togglePicList {
   display: none;
   width: 16px;
   height: 16px;
-  background-image: url("list.png");
-  background-repeat: no-repeat;
-  margin-top: 15px;
+  background-image: url("grid.png");
+  margin-top: 12px;
   margin-left: 27px;
 }
 .viewTag {

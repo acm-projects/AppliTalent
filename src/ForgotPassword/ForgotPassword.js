@@ -39,7 +39,7 @@ const goLogin = () =>{
               {success ? <label className="successfulSend">Email has been sent!</label> : ""}
               {error ? <label className="unsuccessfulSend">This email either doesn't exist or is incorrect.</label> : ""}
             </figure>
-          </div>  
+          </div>
         </div>
       );
 }

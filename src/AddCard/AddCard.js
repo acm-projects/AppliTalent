@@ -125,7 +125,7 @@ const AddCard = ({setApplications}) => {
       }
       goHome();
     };
-  
+      require("./AddCard.css");
       return (
         <div className = "wholeCardPage">
           <div className="topBarCard">

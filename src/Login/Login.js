@@ -163,7 +163,9 @@ const Login = ({setApplications}) => {
             <label className="webName2">GoHire</label>
           </div>
           <div className="catchPhraseDiv">
-            <label className="catchPhrase">Tracking applications should be simple</label>
+            <label className="catchPhrase">Make Your First Step Simple</label>
+            <p className="blurb">A tool designed for college students to track all your applictions,</p>
+            <p className="blurb"> making the stressful process quick and straightforward</p>
           </div>
           <button onClick={flipLogin} className="signUpButton">Sign up</button>
         </div>
@@ -177,7 +179,7 @@ const Login = ({setApplications}) => {
               <p className="pswdInvalid">Wrong password</p>
               <button className = "signInButton" type="submit">Sign in</button>
             </form>
-            <a className="forgotUserPass" onClick={goToForgot}>Forgot Username/Password?</a>
+            <a className="forgotUserPass" onClick={goToForgot}>Forgot Password?</a>
           </figure>
           <figure className="loginBlockBack" onSubmit={handleSignUp}>
             <label className="signUpTitle">Sign up</label>
