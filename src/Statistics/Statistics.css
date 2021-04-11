@@ -32,13 +32,79 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
   font-weight: bold;
-  color: #9cc39c;
+  color: #182628;
   text-align: center;
 }
 .graphContainer {
   margin: auto;
+  margin-left: 100px;
+  text-align: left;
   margin-top: 50px;
   width: 1000px;
   height: 600px;
-  background-color: aqua;
+}
+.graphLabels {
+  display: inline-block;
+  height: 100%;
+  width: 200px;
+  font-size: 37px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+  color: #182628;
+}
+.actualGraph {
+  position: absolute;
+  display: inline-block;
+  width: 800px;
+  height: 600px;
+  border-bottom: solid;
+  border-left: solid;
+  border-color: #182628;
+}
+.aBar {
+  width: 100px;
+  height: 100px;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  background-color: #3f681c;
+}
+.rBar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 50px;
+  background-color: #fb6542;
+}
+.pBar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 50px;
+  background-color: #ffbb00;
+}
+.nBar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 50px;
+  background-color: #375e97;
+}
+
+.aLabel {
+  padding-left: 10px;
+  height: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.rLabel {
+  padding-left: 10px;
+  height: 100px;
+  margin-bottom: 50px;
+}
+.pLabel {
+  padding-left: 10px;
+  height: 100px;
+  margin-bottom: 50px;
+}
+.nLabel {
+  padding-left: 10px;
+  height: 100px;
+  margin-bottom: 50px;
 }

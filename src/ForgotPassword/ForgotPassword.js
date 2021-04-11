@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import firebase from '../firebase';
-
+import './ForgotPassword.css';
 const ForgotPassword = ({setApplications}) => {
-  
-const [email, setEmail] = useState("");
+  let history = useHistory();
+  const [email, setEmail] = useState("");
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
@@ -25,14 +25,21 @@ const [email, setEmail] = useState("");
       }
     });
   };
-
+const goLogin = () =>{
+      history.push("/login");
+    };
       return (
         <div className = "wholeForgot">
-          <label for="email">Enter your email: </label>
-          <input name="email" id="email" type="email" required value={email} onChange={handleEmailChange} />
-          <button onClick={resetPassword}>Reset Email</button>
-          {success ? <p>A password reset email has been sent to your email.</p> : ""}
-          {error ? <p>{error}</p> : ""}
+          <div className = "forgotPasswordBlock">
+            <figure className="forgotBlockMain">
+              <div className = "backButton" onClick={goLogin}></div>
+              <label className="passwordReset">Password Reset</label>
+              <input className = "emailInput" name="email" id="email" type="email" required value={email} onChange={handleEmailChange} placeholder=" Email"/>
+              <button className = "resetButton" onClick={resetPassword}>Send</button>
+              {success ? <label className="successfulSend">Email has been sent!</label> : ""}
+              {error ? <label className="unsuccessfulSend">This email either doesn't exist or is incorrect.</label> : ""}
+            </figure>
+          </div>  
         </div>
       );
 }

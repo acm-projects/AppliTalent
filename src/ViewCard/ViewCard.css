@@ -1,6 +1,7 @@
 input {
   border: none;
 }
+/* ~~~~~~not used~~~~~~~~
 .confirmChange {
   display: none;
   background-color: #94618e;
@@ -157,4 +158,78 @@ input {
   background-repeat: no-repeat;
   background-size: 67%;
   cursor: pointer;
+}
+~~~~~~~~updates to view card~~~~~~~~*/
+
+.cmpName {
+  background-color: #9cc39c;
+  opacity: 0.8;
+  border: none;
+  padding: 5px;
+  padding-left: 5px;
+  color: #182628;
+}
+.Date {
+  background-color: #9cc39c;
+  opacity: 0.8;
+  border: none;
+  padding: 5px;
+  padding-left: 5px;
+  color: #182628;
+}
+.Position {
+  background-color: #9cc39c;
+  opacity: 0.8;
+  border: none;
+  padding: 5px;
+  padding-left: 5px;
+  color: #182628;
+}
+.Status {
+  background-color: #9cc39c;
+  opacity: 0.8;
+  border: none;
+  padding: 5px;
+  padding-left: 5px;
+  color: #182628;
+}
+.Location {
+  background-color: #9cc39c;
+  opacity: 0.8;
+  border: none;
+  padding: 5px;
+  padding-left: 5px;
+  color: #182628;
+}
+.Salary {
+  background-color: #9cc39c;
+  opacity: 0.8;
+  border: none;
+  padding: 5px;
+  padding-left: 5px;
+  color: #182628;
+}
+.Contact {
+  background-color: #9cc39c;
+  opacity: 0.8;
+  border: none;
+  padding: 5px;
+  padding-left: 5px;
+  color: #182628;
+}
+.AppNum {
+  background-color: #9cc39c;
+  opacity: 0.8;
+  border: none;
+  padding: 5px;
+  padding-left: 5px;
+  color: #182628;
+}
+.Description {
+  background-color: #9cc39c;
+  opacity: 0.8;
+  border: none;
+  padding: 5px;
+  padding-left: 5px;
+  color: #182628;
 }
