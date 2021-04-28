@@ -1,5 +1,8 @@
-
+<!-- Logo and App Header-->
 <p align="center">
+  <a href="https://github.com/github_username/repo_name">
+    <img src="https://github.com/acm-projects/AppliTalent/blob/master/public/logo.png" alt="logo">
+  </a>
   <h3 align="center">GoHire : Make Your First Step Simple</h3>
   <p align="center">
     A tool designed for college students to track all of your applications, making the stressful process quick and straightforward.
@@ -9,9 +12,11 @@
   </p>
 </p>
 
+<!--OVERVIEW-->
 # Overview
    A simple web application that would allow college students/ internship applicants to organize and keep track of their applications and the corresponding details. Every student knows that the application process is long and tedious with multiple steps to each individual position’s application. It would be a unified place to store every aspect of one's application.
-   
+
+<!--ABOUT SECTION-->
 # About The Project
 **Main Features**
   - User Accounts: 
@@ -29,6 +34,7 @@
   - [React](https://reactjs.org/) - React was used to create all the UI components of the application. CSS provided the styling. React router was used to allow navigation to other pages.
   - [Firebase](https://firebase.google.com/) - For the users, we used Firestore to help store the applications and make changes to applications as they were being added in. We also used Firebase User Authentication to create and authenticate users with the sign-up and log in forms. This also allows users to keep track of all their data and make it customizable to their preferences.
   
+<!--HOW TO INSTALL-->
 # Installation
 1. Clone the project to your local machine
 ```
@@ -43,8 +49,9 @@ npm install
 npm start
 ```
 4. The application should now open up in a web browser and you can start adding your applications!
-  
-# Contact
+
+<!--TEAM INFORMATION-->
+# The Team
 Project Manager:
 - Jeshna Gupta - [LinkedIn]( https://www.linkedin.com/in/jeshna-gupta/)
         
@@ -60,6 +67,7 @@ Participants:
         
 Project Link: [GoHire Project]( https://github.com/acm-projects/AppliTalent)
 
+<!--ACM LINK-->
 # Acknowledgements
 - [ACM UTDallas]( https://www.acmutd.co/)
 
