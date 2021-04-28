@@ -71,6 +71,22 @@ Tasks for Frontend and Backend:
       - Create reminder feature
       - Combining frontend and backend
 
-      
+#Contact
+   Project Manager:
+      - Jeshna Gupta: [LinkedIn]( https://www.linkedin.com/in/jeshna-gupta/)
+        
+   Industry Mentor:
+      - Viraj Mavani: [LinkedIn]( https://www.linkedin.com/in/virajmavani/)
+        
+   Participants:
+      - Eric Ye - *Frontend* [Github]( https://github.com/yeeric01) [LinkedIn]( https://www.linkedin.com/in/yeeric01/)
+      - Muiez Qureshi - *Frontend* [Github]( https://github.com/muiezqureshi) / [LinkedIn]( https://www.linkedin.com/in/muiez-qureshi/)
+      - Leon Thomas - *Frontend* [Github]( https://github.com/leon818c) / [LinkedIn]( linkedin.com/in/leon-thomas-3b7a541a3) 
+      - Ved Sharma - *Backend* [Github]( https://github.com/vedsharma1423) / [LinkedIn]( https://www.linkedin.com/in/ved-sharma-4b2335208/)
+      - Riya Gandhi -  *Backend* [Github]( https://github.com/rng190001) / [LinkedIn]( http://linkedin.com/in/riya-gandhi-9021ab1a9)
+        
+   Project Link: [GoHire]( https://github.com/acm-projects/AppliTalent)
 
+#Acknowledgements
+     - [ACM UTDallas]( https://www.acmutd.co/)
 
